@@ -1,246 +1,163 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f1e9">
-  <meta name="color-scheme" content="light">
-  <title>Психолог по психосоматике в Москве и онлайн | Вероника Сухарева</title>
-  <meta name="description" content="Вероника Сухарева - психолог и сертифицированный супервизор. Работа с телесными симптомами, сильными эмоциями и повторяющимися реакциями. Онлайн и очно в Москве.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="Вероника Сухарева - психолог">
-  <meta property="og:description" content="Разобраться, что происходит, и менять то, что больше не помогает. Онлайн и очно в Москве.">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Психолог по психосоматике в Москве и онлайн | Вероника Сухарева</title>
+<meta name="description" content="Вероника Сухарева - психолог и сертифицированный супервизор. Работа с телесными симптомами, сильными эмоциями и повторяющимися реакциями. Онлайн и очно в Москве.">
+<meta name="theme-color" content="#f5f1e9">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Вероника Сухарева - психолог">
+<meta property="og:description" content="Разобраться, что происходит, и менять то, что больше не помогает. Онлайн и очно в Москве.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --bg:#f5f1e9;
+  --paper:#fdfbf6;
+  --ink:#20231f;
+  --muted:#5f5953;
+  --forest:#17372f;
+  --forest2:#24483e;
+  --wine:#7d2343;
+  --wine2:#661a35;
+  --line:#c3baae;
+  --ochre:#7d2343;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.56}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 48px));margin:auto}
+.skip-link{position:absolute;left:16px;top:-80px;z-index:1000;padding:12px 16px;background:#fff;color:var(--ink);border:2px solid var(--ink);text-decoration:none;font-weight:700}.skip-link:focus{top:12px}
+.header{position:relative;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.headerin{min-height:66px;display:flex;align-items:center;gap:26px}
+.brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-decoration:none;margin-right:auto}
+.nav{display:flex;align-items:center;gap:20px;font-size:14px}.nav a{text-decoration:none;padding:12px 4px}.nav .cta-link{color:var(--wine);font-weight:800}
+
+.hero{padding:76px 0 66px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,.55fr);gap:68px;align-items:end}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--wine);margin:0 0 24px}
+h1,h2,h3{font-family:Georgia,serif;margin:0;line-height:1.05;font-weight:700}
+h1{font-size:clamp(50px,6.7vw,88px);letter-spacing:-.045em;max-width:930px}
+h1 em{font-style:normal;color:var(--wine)}
+.hero-copy{font-size:20px;max-width:760px;margin:30px 0 0}
+.hero-copy strong{font-weight:800}
+.meta{border-left:2px solid var(--ink);padding-left:22px;margin-bottom:4px}
+.meta-row{padding:12px 0;border-bottom:1px solid var(--line)}
+.meta-row:first-child{padding-top:0}.meta-row:last-child{border-bottom:0}
+.meta small{display:block;color:var(--muted);font-size:12px;letter-spacing:.11em;text-transform:uppercase;margin-bottom:4px}
+.meta b{font-size:16px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 20px;border:1px solid var(--wine);border-radius:3px;text-decoration:none;font-weight:800;font-size:15px}
+.btn.primary{background:var(--wine);color:#fff}.btn.primary:hover{background:var(--wine2)}.btn.ghost{color:var(--wine)}
+
+.section{padding:82px 0;border-bottom:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:.55fr 1.45fr;gap:56px;margin-bottom:42px;align-items:start}
+.label{font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:var(--wine);padding-top:8px}
+h2{font-size:clamp(34px,4.3vw,52px);letter-spacing:-.028em;max-width:800px}
+.section-head p{font-size:17px;color:var(--muted);max-width:720px;margin:18px 0 0}
+
+.reasons{border-top:1px solid var(--ink)}
+.reason{display:grid;grid-template-columns:210px 1fr 230px;gap:28px;padding:26px 0;border-bottom:1px solid var(--line);align-items:start}
+.reason-title{font-family:Georgia,serif;font-size:25px;line-height:1.15}
+.reason-copy{font-size:16px;max-width:650px}
+.reason-note{font-size:14px;color:var(--muted);padding-top:3px}
+.reason-note b{color:var(--wine)}
+
+.work{background:var(--forest);color:#f6f0e7;border-bottom:0}
+.work .label{color:#d6a4b6}.work h2{max-width:900px}
+.work .section-head p{color:#d8d1c6}
+.work-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:58px;border-top:1px solid rgba(255,255,255,.23);padding-top:36px}
+.work-big{font-family:Georgia,serif;font-size:clamp(32px,4vw,50px);line-height:1.12;letter-spacing:-.025em}
+.work-big .accent{color:#e7b5c6}
+.work-list{counter-reset:w}
+.work-row{counter-increment:w;display:grid;grid-template-columns:48px 1fr;gap:18px;padding:0 0 24px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.18)}
+.work-row:last-child{margin-bottom:0;border-bottom:0}
+.work-row:before{content:"0" counter(w);font-family:Georgia,serif;font-size:20px;color:#d6a4b6}
+.work-row h3{font-size:23px;margin-bottom:8px}.work-row p{margin:0;color:#ddd6cc;font-size:16px;max-width:650px}
+.quote{margin-top:48px;border-top:1px solid rgba(255,255,255,.25);padding-top:30px;display:grid;grid-template-columns:.55fr 1.45fr;gap:56px}
+.quote p{font-family:Georgia,serif;font-size:29px;line-height:1.25;margin:0;max-width:760px}.quote small{color:#d8d1c6;font-size:14px}
+
+.body-section{background:var(--paper)}
+.body-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:start}
+.body-main h2{margin-bottom:24px}.body-main p{font-size:18px;max-width:650px}
+.body-main .marker{font-family:Georgia,serif;font-size:30px;line-height:1.24;color:var(--wine);margin:32px 0 0}
+.body-aside{border-left:1px solid var(--line);padding-left:34px}
+.body-aside .aside-item{padding:0 0 22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.body-aside .aside-item:last-child{border-bottom:0}
+.body-aside h3{font-size:20px;margin-bottom:7px}.body-aside p{font-size:15.5px;color:var(--muted);margin:0}
+
+.process{background:var(--bg)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.step{padding:26px 24px 0 0;border-right:1px solid var(--line);min-height:190px}
+.step:not(:first-child){padding-left:24px}.step:last-child{border-right:0}
+.step .n{font-family:Georgia,serif;color:var(--wine);font-size:25px}.step h3{font-size:20px;margin:18px 0 8px}.step p{font-size:15.5px;color:var(--muted);margin:0}
+
+.practical{background:var(--paper)}
+.practical-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:64px;align-items:start}
+.price-card{border-top:2px solid var(--ink);padding-top:18px;margin-bottom:26px}
+.price-line{display:flex;justify-content:space-between;gap:30px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.price-line strong{font-family:Georgia,serif;font-size:24px}.price-line span{font-size:15px;color:var(--muted)}.money{font-family:Georgia,serif;font-size:34px;color:var(--wine);white-space:nowrap}
+.practical-note{font-size:15px;color:var(--muted);margin:24px 0 0}
+
+.about{display:grid;grid-template-columns:.62fr 1.38fr;gap:64px;align-items:start}
+.about-img{position:relative}.about-img img{display:block;width:100%;height:auto;border:1px solid #bfb7ad}
+.about-img:after{display:none}
+.about-copy .role{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--wine);font-weight:800;margin:10px 0 24px}
+.about-copy p{font-size:17px;max-width:690px;color:#4f4944}.about-copy .micro{font-size:14px;color:var(--muted);border-left:2px solid var(--wine);padding-left:16px;margin-top:28px}
+
+.reading{background:var(--bg)}
+.read-list{border-top:1px solid var(--ink)}
+.read-item{display:grid;grid-template-columns:180px 1fr 130px;gap:26px;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;align-items:center}
+.read-item small{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--wine);font-weight:800}.read-item strong{font-family:Georgia,serif;font-size:21px;line-height:1.2}.read-item span{text-align:right;color:var(--muted);font-size:14px;text-decoration:underline;text-underline-offset:3px}.read-item:hover strong{color:var(--wine)}
+
+.final{background:var(--wine);color:#fff;padding:72px 0}
+.final-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:56px;align-items:center}.final h2{font-size:clamp(36px,4.4vw,54px)}.final p{color:#f3dfe7;font-size:17px;max-width:680px}.final .btn{background:#fff;color:var(--wine);border-color:#fff;text-align:center;min-width:220px}
+footer{padding:28px 0 40px;font-size:14px;color:var(--muted)}.foot{display:flex;justify-content:space-between;gap:20px}.foot a{color:var(--muted)}
+
+a:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 5px var(--ink);border-radius:2px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+
+@media(max-width:900px){
+ .nav{display:none}.hero-grid,.section-head,.work-grid,.quote,.body-grid,.practical-grid,.about,.final-grid{grid-template-columns:1fr}.hero-grid{gap:34px}.meta{border-left:0;border-top:2px solid var(--ink);padding-left:0;padding-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.meta-row{border-bottom:0;padding:0}.section-head{gap:12px}.reason{grid-template-columns:1fr;gap:8px}.reason-note{padding-top:0}.steps{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid var(--line);padding-bottom:24px}.step:nth-child(3),.step:nth-child(4){padding-top:24px}.step:nth-child(3){padding-left:0}.about{gap:34px}.read-item{grid-template-columns:130px 1fr 90px}.final .btn{justify-self:start}
+}
+@media(max-width:620px){
+ .wrap{width:min(100% - 30px,1180px)}.hero{padding:48px 0 48px}.kicker{margin-bottom:18px}h1{font-size:44px}.hero-copy{font-size:18px}.meta{grid-template-columns:1fr 1fr}.section{padding:58px 0}.section-head{margin-bottom:30px}h2{font-size:34px}.reason{padding:22px 0}.reason-title{font-size:23px}.work-big{font-size:34px}.quote{gap:12px}.quote p{font-size:25px}.body-main .marker{font-size:26px}.body-aside{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:24px}.steps{grid-template-columns:1fr}.step,.step:not(:first-child){border-right:0;border-bottom:1px solid var(--line);padding:22px 0;min-height:0}.step:nth-child(3){padding-left:0}.step:last-child{border-bottom:0}.price-line{display:grid;grid-template-columns:1fr auto;gap:8px}.read-item{grid-template-columns:1fr}.read-item span{text-align:left}.about-img:after{display:none}.final{padding:58px 0}footer{padding-bottom:40px}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
+<a class="skip-link" href="#top">Перейти к содержанию</a>
+<header class="header"><div class="wrap headerin"><a class="brand" href="#top">Вероника Сухарева</a><nav class="nav" aria-label="Основная навигация"><a href="#situations">С чем прийти</a><a href="#work">Как работаю</a><a href="#format">Формат</a><a href="#about">Обо мне</a><a class="cta-link" href="https://t.me/VeronikaSukhareva">Записаться</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="wrap hero-grid"><div><p class="kicker">психолог и сертифицированный супервизор</p><h1>Разобраться, что происходит. <em>И менять то, что больше не помогает.</em></h1><p class="hero-copy">Можно прийти с телесным симптомом, сильной эмоцией или ситуацией, которая снова заканчивается одинаково. Мы разбираемся, <strong>что происходит именно у вас, какую задачу решает эта реакция и почему она держится</strong>. А дальше работаем с тем, что нашли, чтобы у вас появлялся выбор, а не один привычный способ реагировать.</p><div class="buttons"><a class="btn primary" href="https://t.me/VeronikaSukhareva">Записаться</a><a class="btn ghost" href="#work">Как я работаю</a></div></div><aside class="meta" aria-label="Формат консультаций"><div class="meta-row"><small>формат</small><b>онлайн и Москва</b></div><div class="meta-row"><small>встреча</small><b>55-60 минут</b></div><div class="meta-row"><small>стоимость</small><b>6000 ₽</b></div></aside></div></section>
 
-  <header class="header">
-    <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="Вероника Сухарева, в начало страницы">Вероника Сухарева</a>
-      <nav class="nav" aria-label="Основная навигация">
-        <a href="#situations">С чем прийти</a>
-        <a href="#work">Как работаю</a>
-        <a href="#format">Формат</a>
-        <a href="#about">Обо мне</a>
-        <a class="cta-link" href="https://t.me/VeronikaSukhareva">Записаться</a>
-      </nav>
-    </div>
-  </header>
+<section class="section" id="situations"><div class="wrap"><div class="section-head"><div class="label">С чем можно прийти</div><div><h2>С чем можно прийти</h2><p>Не нужно подбирать правильные психологические слова. Можно начать с того, что болит, злит, пугает, повторяется или давно не отпускает.</p></div></div><div class="reasons">
+<div class="reason"><div class="reason-title">Тело реагирует</div><div class="reason-copy">Болит голова, каменеют плечи, сбивается сон, беспокоит живот, колотится сердце. Или симптом заметно усиливается в определенных ситуациях.</div><div class="reason-note"><b>Смотрим:</b> что здесь связано с нагрузкой и переживаниями, а где важно учитывать физиологию.</div></div>
+<div class="reason"><div class="reason-title">Эмоции трудно выдерживать</div><div class="reason-copy">Тревога, гнев, стыд, вина, страх или обида накрывают сильнее, чем хотелось бы. Или вы так долго держите их внутри, что становится тяжело и психически, и телесно.</div><div class="reason-note"><b>Разбираемся:</b> что эмоция помогает защитить, выдержать или изменить.</div></div>
+<div class="reason"><div class="reason-title">Снова получается по-старому</div><div class="reason-copy">Вы уже понимаете, почему так делаете, но в похожей ситуации все равно молчите, оправдываетесь, уступаете, отдаляетесь, терпите или срываетесь.</div><div class="reason-note"><b>Тогда одного понимания мало:</b> смотрим, что держит этот способ и что может появиться вместо него.</div></div>
+</div></div></section>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="kicker">психолог и сертифицированный супервизор</p>
-          <h1>Разобраться, что происходит. <em>И менять то, что больше не помогает.</em></h1>
-          <p class="hero-copy">Можно прийти с телесным симптомом, сильной эмоцией или ситуацией, которая снова заканчивается одинаково. Мы разбираемся, <strong>что происходит именно у вас, какую задачу решает эта реакция и почему она держится</strong>. А дальше работаем с тем, что нашли, чтобы у вас появлялся выбор, а не один привычный способ реагировать.</p>
-          <div class="buttons">
-            <a class="btn primary" href="https://t.me/VeronikaSukhareva">Записаться</a>
-            <a class="btn ghost" href="#work">Как я работаю</a>
-          </div>
-        </div>
-        <aside class="meta" aria-label="Формат консультаций">
-          <div class="meta-row"><small>формат</small><b>онлайн и Москва</b></div>
-          <div class="meta-row"><small>встреча</small><b>55-60 минут</b></div>
-          <div class="meta-row"><small>стоимость</small><b>6000 ₽</b></div>
-        </aside>
-      </div>
-    </section>
+<section class="section work" id="work"><div class="wrap"><div class="section-head"><div class="label">Как я работаю</div><div><h2>Разобраться - только начало</h2><p>Мне важно не только понять, откуда взялась реакция. Мы смотрим, какую задачу она решает сейчас, что помогает выдержать, получить или защитить. Когда это становится видно, можно работать не против себя, а с самой задачей.</p></div></div><div class="work-grid"><div class="work-big">Не только <span class="accent">«почему так?»</span><br>но и <span class="accent">«что с этим можно сделать?»</span></div><div class="work-list">
+<div class="work-row"><div><h3>Собираем картину</h3><p>Что происходит сейчас: чувства, мысли, тело, образы, отношения, обстоятельства. И где похожее уже было раньше.</p></div></div>
+<div class="work-row"><div><h3>Ищем, что за этим стоит</h3><p>Какая здесь потребность, от чего реакция защищает, что помогает сохранить или получить и почему когда-то такой способ оказался нужен.</p></div></div>
+<div class="work-row"><div><h3>Работаем с тем, что держит старый способ</h3><p>Это могут быть прежние решения, убеждения, внутренние конфликты, образы или чувства. Иногда работаем разговорно, иногда через образы и телесные ощущения.</p></div></div>
+<div class="work-row"><div><h3>Ищем другой способ решить ту же задачу</h3><p>Чтобы в похожей ситуации у вас был выбор, а не только один привычный вариант.</p></div></div>
+</div></div><div class="quote"><small>мой рабочий принцип</small><p>Теория - это версия. Если она не подходит к вашей реальной истории, значит, не подходит теория, а не вы.</p></div></div></section>
 
-    <section class="section" id="situations">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="label">С чем можно прийти</div>
-          <div>
-            <h2>С чем можно прийти</h2>
-            <p>Не нужно подбирать правильные психологические слова. Можно начать с того, что болит, злит, пугает, повторяется или давно не отпускает.</p>
-          </div>
-        </div>
+<section class="section body-section"><div class="wrap body-grid"><div class="body-main"><div class="label">Если вопрос про тело</div><h2>Симптом нельзя честно объяснить одной фразой</h2><p>Можно посмотреть, когда он появляется или усиливается, что происходит в эти моменты, как вы его чувствуете и что еще меняется вместе с ним. Иногда рядом оказываются хроническое напряжение, страх, злость, внутренний конфликт или привычка терпеть. Иногда причина в теле. Иногда имеет значение и то и другое.</p><p class="marker">Психологическая работа не отменяет врача. Если сначала нужна диагностика или лечение, это и будет первым шагом.</p></div><aside class="body-aside"><div class="aside-item"><h3>Без таблиц «болит X - значит Y»</h3><p>Одинаковый симптом у разных людей может быть связан с очень разными историями. Проверяем, что происходит именно у вас.</p></div><div class="aside-item"><h3>Физиология тоже важна</h3><p>Сон, нагрузка, лекарства, питание, хронические состояния и другие телесные факторы могут влиять на самочувствие.</p></div><div class="aside-item"><h3>Не воюем с телом</h3><p>Симптом может быть неприятным и при этом что-то помогать выдерживать. Разбираемся, что именно, и ищем другие способы.</p></div></aside></div></section>
 
-        <div class="reasons">
-          <article class="reason">
-            <div class="reason-title">Тело реагирует</div>
-            <div class="reason-copy">Болит голова, каменеют плечи, сбивается сон, беспокоит живот, колотится сердце. Или симптом заметно усиливается в определенных ситуациях.</div>
-            <div class="reason-note"><b>Смотрим:</b> что здесь связано с нагрузкой и переживаниями, а где важно учитывать физиологию.</div>
-          </article>
-          <article class="reason">
-            <div class="reason-title">Эмоции трудно выдерживать</div>
-            <div class="reason-copy">Тревога, гнев, стыд, вина, страх или обида накрывают сильнее, чем хотелось бы. Или вы так долго держите их внутри, что становится тяжело и психически, и телесно.</div>
-            <div class="reason-note"><b>Разбираемся:</b> что эмоция помогает защитить, выдержать или изменить.</div>
-          </article>
-          <article class="reason">
-            <div class="reason-title">Снова получается по-старому</div>
-            <div class="reason-copy">Вы уже понимаете, почему так делаете, но в похожей ситуации все равно молчите, оправдываетесь, уступаете, отдаляетесь, терпите или срываетесь.</div>
-            <div class="reason-note"><b>Тогда одного понимания мало:</b> смотрим, что держит этот способ и что может появиться вместо него.</div>
-          </article>
-        </div>
-      </div>
-    </section>
+<section class="section process" id="process"><div class="wrap"><div class="section-head"><div class="label">Одна встреча</div><div><h2>Как проходит встреча</h2><p>У встречи есть каркас, но нет плана по минутам. Кто-то приходит к главному сразу, кому-то нужно сначала освоиться. И то и другое нормально.</p></div></div><div class="steps"><div class="step"><div class="n">01</div><h3>Смотрим, как вы сейчас</h3><p>Пара слов о состоянии, последних событиях и том, с чем вы пришли сегодня.</p></div><div class="step"><div class="n">02</div><h3>Выбираем, с чем работаем</h3><p>Уточняем, что сейчас важнее всего и что хотелось бы изменить.</p></div><div class="step"><div class="n">03</div><h3>Работаем</h3><p>Разбираем чувства, мысли, убеждения, образы и конфликты. Ищем проходы, пробуем новые решения, при необходимости подключаем работу с телесными ощущениями.</p></div><div class="step"><div class="n">04</div><h3>Завершаем</h3><p>Смотрим, что изменилось за встречу, что стало понятнее и на чем важно остановиться сегодня.</p></div></div></div></section>
 
-    <section class="section work-section" id="work">
-      <div class="wrap">
-        <div class="section-head light-head">
-          <div class="label light-label">Как я работаю</div>
-          <div>
-            <h2>Разобраться - только начало</h2>
-            <p>Мне важно не только понять, откуда взялась реакция. Мы смотрим, какую задачу она решает сейчас, что помогает выдержать, получить или защитить. Когда это становится видно, можно работать не против себя, а с самой задачей.</p>
-          </div>
-        </div>
+<section class="section practical" id="format"><div class="wrap practical-grid"><div><div class="label">Формат</div><h2>Формат и стоимость</h2><p class="practical-note">Можно прийти на одну консультацию и посмотреть, что она вам дает. Продолжать или нет, вы решаете сами.</p></div><div><div class="price-card"><div class="price-line"><div><strong>Онлайн</strong><br><span>Zoom, 55-60 минут</span></div><div class="money">6000 ₽</div></div><div class="price-line"><div><strong>Очно в Москве</strong><br><span>район м. Краснопресненская, 55 минут</span></div><div class="money">6000 ₽</div></div></div><a class="btn primary" href="https://t.me/VeronikaSukhareva">Написать и выбрать время</a><p class="practical-note">Напишите, хотите онлайн или очно, и в двух-трех предложениях расскажите, что сейчас происходит. Этого достаточно.</p></div></div></section>
 
-        <div class="work-grid">
-          <article class="work-item">
-            <span>01</span>
-            <h3>Собираем вашу картину</h3>
-            <p>Что происходит сейчас: чувства, мысли, образы, телесные ощущения, внутренние противоречия. Что повторяется и в каких ситуациях.</p>
-          </article>
-          <article class="work-item">
-            <span>02</span>
-            <h3>Ищем, зачем это стало нужно</h3>
-            <p>Какую потребность закрывает привычный способ. Что он помогает получить, сохранить, не потерять, выдержать или защитить.</p>
-          </article>
-          <article class="work-item">
-            <span>03</span>
-            <h3>Разбираемся, откуда это взялось</h3>
-            <p>Какие прежние решения, убеждения, отношения и способы приспособиться продолжают влиять на то, что происходит сейчас.</p>
-          </article>
-          <article class="work-item">
-            <span>04</span>
-            <h3>Работаем с тем, что нашли</h3>
-            <p>Разговор, образы и внимание к телесным ощущениям помогают не только говорить о проблеме, но и менять то, как она переживается изнутри.</p>
-          </article>
-          <article class="work-item">
-            <span>05</span>
-            <h3>Ищем другие способы</h3>
-            <p>Чтобы нужное можно было получать иначе, а в знакомой ситуации появлялись новые решения и реакции.</p>
-          </article>
-        </div>
+<section class="section" id="about"><div class="wrap about"><div class="about-img"><img src="images/veronika-sukhareva.jpg" alt="Вероника Сухарева" width="1000" height="1504" loading="lazy" decoding="async"></div><div class="about-copy"><div class="label">Обо мне</div><h2>Вероника Сухарева</h2><div class="role">психолог и сертифицированный супервизор</div><p>До психологии я занималась микробиологией, работала специалистом и руководителем. Оттуда у меня осталась привычка проверять версии, а не влюбляться в красивое объяснение. Поэтому фразы «это просто стресс» мне мало. Важно понять, что происходит именно с этим человеком.</p><p>Работаю интегративно. Использую ЭОТ, ОРКТ, инструменты КПТ и другие методы, но не собираю консультацию вокруг метода. Смотрю, что подходит человеку и задаче.</p><p class="micro">И еще мне важно не воевать с реакцией. Если она появилась и держится, скорее всего, когда-то она зачем-то понадобилась. Мы ищем, что именно она помогала делать, и чем это можно заменить сейчас.</p></div></div></section>
 
-        <blockquote class="principle">
-          <p>Теория - это версия. Если она не подходит к вашей реальной истории, значит, не подходит теория, а не вы.</p>
-        </blockquote>
+<section class="section reading"><div class="wrap"><div class="section-head"><div class="label">Telegram</div><div><h2>Если хотите сначала почитать меня</h2><p>В Telegram я пишу подробнее: про тело и психику, спорные идеи, исследования и то, что вижу в работе. Вот несколько текстов, с которых можно начать.</p></div></div><div class="read-list"><a class="read-item" href="https://t.me/sukhareva_psy/122"><small>тело и симптом</small><strong>Почему важны конкретные симптомы, а не только диагноз</strong><span>Telegram →</span></a><a class="read-item" href="https://t.me/sukhareva_psy/547"><small>напряжение</small><strong>Зажатые плечи: почему массаж не всегда решает проблему</strong><span>Telegram →</span></a><a class="read-item" href="https://t.me/sukhareva_psy/1191"><small>потребности</small><strong>Почему я не очень люблю говорить о вторичной выгоде</strong><span>Telegram →</span></a></div><div class="buttons"><a class="btn ghost" href="https://t.me/sukhareva_psy/2421">Открыть оглавление канала</a></div></div></section>
 
-        <div class="doctor-note">
-          <div class="doctor-label">Когда есть телесный симптом</div>
-          <p>Психологическая работа не заменяет диагностику и лечение. Иногда главное происходит в психике. Иногда все началось с телесной причины, а напряжение помогает состоянию сохраняться. А иногда первым делом нужен врач. Это не взаимоисключающие версии.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section process-section">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="label">На встрече</div>
-          <div>
-            <h2>У консультации есть каркас. Темп остается вашим.</h2>
-            <p>Не нужно успевать важное к определенной минуте. Кто-то сразу говорит о главном, кому-то нужно время. Встреча подстраивается под то, с чем вы пришли и сколько сейчас есть сил.</p>
-          </div>
-        </div>
-
-        <ol class="process">
-          <li><span>01</span><div><h3>Как вы сейчас</h3><p>Несколько слов о состоянии и о том, что происходило с прошлой встречи.</p></div></li>
-          <li><span>02</span><div><h3>Что сегодня разбираем</h3><p>Определяем тему встречи и то, что хотелось бы изменить или с чем разобраться.</p></div></li>
-          <li><span>03</span><div><h3>Разбираем и меняем</h3><p>Исследуем чувства, мысли, убеждения, образы и внутренние конфликты. Работаем с тем, что нашли, и ищем новые решения.</p></div></li>
-          <li><span>04</span><div><h3>Собираем итог</h3><p>Смотрим, что изменилось за встречу, что стало яснее и с чем вы уходите.</p></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section format-section" id="format">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="label">Формат</div>
-          <div>
-            <h2>Можно начать с одной встречи</h2>
-            <p>После консультации вы сами решаете, нужна ли следующая и какой формат работы вам подходит.</p>
-          </div>
-        </div>
-
-        <div class="format-grid">
-          <div class="format-card">
-            <h3>Онлайн</h3>
-            <p>Zoom, из любого города</p>
-            <dl>
-              <div><dt>Время</dt><dd>55-60 минут</dd></div>
-              <div><dt>Стоимость</dt><dd>6000 ₽</dd></div>
-            </dl>
-          </div>
-          <div class="format-card">
-            <h3>Очно</h3>
-            <p>Москва, район Краснопресненской</p>
-            <dl>
-              <div><dt>Время</dt><dd>55 минут</dd></div>
-              <div><dt>Стоимость</dt><dd>6000 ₽</dd></div>
-            </dl>
-          </div>
-        </div>
-
-        <div class="booking-strip">
-          <p>В первом сообщении достаточно написать, какой формат вам нужен, и в двух-трех предложениях рассказать, что сейчас беспокоит.</p>
-          <a class="btn primary" href="https://t.me/VeronikaSukhareva">Написать в Telegram</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section about-section" id="about">
-      <div class="wrap about-grid">
-        <div class="about-photo">
-          <img src="images/veronika-sukhareva.jpg" alt="Вероника Сухарева" width="1529" height="2048" loading="lazy" decoding="async">
-        </div>
-        <div class="about-copy">
-          <div class="label">Обо мне</div>
-          <h2>Вероника Сухарева</h2>
-          <p class="about-lead">Психолог и сертифицированный супервизор.</p>
-          <p>До психологии я занималась микробиологией, работала и специалистом, и руководителем. Привычка исследовать никуда не делась: мне важно разбираться, что происходит именно с человеком передо мной, а не подгонять его историю под готовую схему.</p>
-          <p>Мне мало общего ответа «это от стресса». Я смотрю, как между собой связаны психика, тело, жизненная история, привычные способы справляться и, когда это важно, физиология.</p>
-          <p>Работаю интегративно. Использую эмоционально-образную терапию, ОРКТ, инструменты КПТ и другие методы в зависимости от человека и задачи.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reading-section">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="label">До встречи</div>
-          <div>
-            <h2>Можно сначала посмотреть, как я думаю</h2>
-            <p>В Telegram я подробно пишу о психосоматике, эмоциях, теле, физиологии и о том, как проходит психологическая работа.</p>
-          </div>
-        </div>
-
-        <div class="reading-list">
-          <a href="https://t.me/sukhareva_psy" target="_blank" rel="noopener"><span>Тело и симптом</span><b>Почему важны конкретные симптомы, а не только диагноз</b><i>читать в Telegram</i></a>
-          <a href="https://t.me/sukhareva_psy" target="_blank" rel="noopener"><span>Напряжение</span><b>Зажатые плечи: почему массаж не всегда решает проблему</b><i>читать в Telegram</i></a>
-          <a href="https://t.me/sukhareva_psy" target="_blank" rel="noopener"><span>Потребности и адаптация</span><b>Почему я не очень люблю говорить о «вторичной выгоде»</b><i>читать в Telegram</i></a>
-        </div>
-
-        <p class="channel-link"><a href="https://t.me/sukhareva_psy" target="_blank" rel="noopener">Перейти в канал и выбрать тему</a></p>
-      </div>
-    </section>
-
-    <section class="final-cta">
-      <div class="wrap final-grid">
-        <div>
-          <div class="label final-label">Запись</div>
-          <h2>Можно начать с одного сообщения</h2>
-          <p>Напишите, что вас сейчас беспокоит, или просто скажите, что хотите записаться. Я отвечу и предложу варианты времени.</p>
-        </div>
-        <div class="final-action">
-          <a class="btn light" href="https://t.me/VeronikaSukhareva">Написать Веронике</a>
-          <small>55-60 минут · 6000 ₽ · онлайн или Москва</small>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer-grid">
-      <div><b>Вероника Сухарева</b><br><span>психолог, сертифицированный супервизор</span></div>
-      <div><a href="https://t.me/VeronikaSukhareva">@VeronikaSukhareva</a><br><a href="https://t.me/sukhareva_psy">Telegram-канал</a></div>
-      <div>Онлайн<br>Москва, Краснопресненская</div>
-    </div>
-  </footer>
+<section class="final"><div class="wrap final-grid"><div><h2>Можно просто написать, что происходит</h2><p>Не нужно придумывать правильный запрос. Пары предложений достаточно. Я отвечу и предложу варианты времени.</p></div><a class="btn" href="https://t.me/VeronikaSukhareva">Записаться на консультацию</a></div></section>
+</main>
+<footer><div class="wrap foot"><span>© Вероника Сухарева</span><span><a href="https://t.me/sukhareva_psy">Telegram-канал</a> · <a href="https://t.me/VeronikaSukhareva">запись</a></span></div></footer>
 </body>
 </html>
