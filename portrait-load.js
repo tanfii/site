@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',function(){var img=document.getElementById('portrait');if(img&&window.__portrait){img.src='data:image/avif;base64,'+window.__portrait;window.__portrait='';}});
