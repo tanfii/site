@@ -1,3 +1,10 @@
+(function(){
+  var typography=document.createElement('link');
+  typography.rel='stylesheet';
+  typography.href='typography-20260928.css';
+  document.head.appendChild(typography);
+})();
+
 document.addEventListener('DOMContentLoaded',function(){
   var img=document.getElementById('portrait');
   if(img&&window.__portrait){
