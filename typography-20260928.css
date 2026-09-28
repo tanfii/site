@@ -1,0 +1,91 @@
+/* Typography layer: one family, one visual voice. Layout intentionally untouched. */
+:root{
+  --typeface: Georgia, "Times New Roman", serif;
+}
+
+html, body, button, input, textarea, select{
+  font-family:var(--typeface);
+}
+
+body{
+  font-size:17px;
+  line-height:1.68;
+}
+
+.brand,
+h1,h2,h3,
+.principle p,
+.money,
+.read-item strong{
+  font-family:inherit;
+}
+
+h1,h2{
+  font-weight:700;
+}
+
+h3,
+.situation-row h3,
+.work-row h3,
+.aside-item h3,
+.step h3,
+.format-row h3,
+.org-item h3,
+.read-item strong{
+  font-weight:400;
+}
+
+.kicker,
+.eyebrow{
+  font-size:15px;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+}
+
+.nav,
+.nav a,
+.btn,
+.hero-facts,
+.section-head>p:not(.eyebrow),
+.section-note,
+.situation-row p,
+.work-row p,
+.principle span,
+.body-main p:not(.eyebrow),
+.aside-item p,
+.step p,
+.format-row p,
+.payment-note,
+.org-item p,
+.about-copy .role,
+.about-copy p:not(.eyebrow):not(.role),
+.final p,
+footer{
+  font-family:inherit;
+}
+
+.btn,
+.nav .cta-link{
+  font-weight:400;
+}
+
+.step .n,
+.read-item span{
+  font-family:inherit;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+}
+
+@media(max-width:760px){
+  body{font-size:16.5px;line-height:1.68}
+  .kicker,.eyebrow{font-size:14.5px}
+  .hero-copy,
+  .section-head>p:not(.eyebrow),
+  .section-note,
+  .situation-row p,
+  .work-row p,
+  .body-main p:not(.eyebrow),
+  .about-copy p:not(.eyebrow):not(.role){font-size:16px}
+}
