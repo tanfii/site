@@ -20,18 +20,19 @@ h1,h2,h3,
   font-family:inherit;
 }
 
-h1,h2{
+.brand{
   font-weight:700;
 }
 
-h3,
+h1,h2,h3,
 .situation-row h3,
 .work-row h3,
 .aside-item h3,
 .step h3,
 .format-row h3,
 .org-item h3,
-.read-item strong{
+.read-item strong,
+.money{
   font-weight:400;
 }
 
