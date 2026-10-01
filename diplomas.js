@@ -5,31 +5,8 @@ const DIPLOMAS = [
 ];
 
 document.addEventListener('DOMContentLoaded', function () {
-  const finalSection = document.querySelector('.final');
-  if (!finalSection) return;
-
-  const stylesheet = document.createElement('link');
-  stylesheet.rel = 'stylesheet';
-  stylesheet.href = 'education.css';
-  document.head.appendChild(stylesheet);
-
-  const section = document.createElement('section');
-  section.className = 'section education';
-  section.id = 'education';
-  section.hidden = true;
-  section.innerHTML = `
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Образование</p>
-        <h2>Образование и квалификация</h2>
-        <p>Дипломы и документы об образовании. Нажмите на документ, чтобы открыть его в полном размере.</p>
-      </div>
-      <div class="diploma-grid" aria-label="Дипломы и документы об образовании"></div>
-    </div>`;
-
-  finalSection.before(section);
-  const grid = section.querySelector('.diploma-grid');
-  let loaded = 0;
+  const grid = document.querySelector('.diploma-grid');
+  if (!grid) return;
 
   DIPLOMAS.forEach(function (item, index) {
     if (!item || !item.file) return;
@@ -51,8 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     img.addEventListener('load', function () {
       if (img.naturalWidth > img.naturalHeight) card.classList.add('is-landscape');
-      loaded += 1;
-      if (loaded === 1) section.hidden = false;
     });
 
     img.addEventListener('error', function () {
