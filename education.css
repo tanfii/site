@@ -1,6 +1,8 @@
 .education{background:var(--bg)}
 .education .section-head{max-width:760px}
-.diploma-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+.education-list{margin-bottom:0}
+.diploma-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;margin-top:30px}
+.diploma-grid:empty{display:none}
 .diploma-card{display:block;min-width:0;text-decoration:none;color:inherit}
 .diploma-frame{display:flex;align-items:center;justify-content:center;padding:10px;background:var(--paper);border:1px solid var(--line)}
 .diploma-card img{display:block;width:100%;height:auto}
