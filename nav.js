@@ -1,4 +1,12 @@
+if (/\/index\.html$/.test(window.location.pathname)) {
+  const cleanPath = window.location.pathname.replace(/index\.html$/, '');
+  window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+  const brand = document.querySelector('.brand');
+  if (brand) brand.setAttribute('href', './');
+
   const menu = document.querySelector('.mobile-menu');
   if (!menu) return;
 
