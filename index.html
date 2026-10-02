@@ -21,13 +21,8 @@
 .supervision-compact{padding:44px 0;background:var(--bg);border-top:1px solid var(--line)}
 .supervision-compact .eyebrow{margin-bottom:8px}.supervision-compact h2{font-size:clamp(28px,3vw,36px)}
 .supervision-compact p{font-size:16px;color:var(--muted);max-width:720px;margin:10px 0 0}.supervision-compact .supervision-meta{color:var(--ink);font-weight:650}
-.org-grid{display:block;border-top:1px solid var(--line)}
-.org-item,.org-item:nth-child(even){display:grid;grid-template-columns:minmax(220px,.6fr) minmax(0,1.4fr);gap:48px;padding:23px 0;border-left:0;border-bottom:1px solid var(--line)}
-.org-item h3{grid-column:1;grid-row:1 / span 8;margin:0;font-size:20px;font-weight:400}
-.org-item p{grid-column:2;max-width:720px;margin:0 0 8px;font-size:15.8px;color:var(--muted)}
-.org-item p:last-child{margin-bottom:0}
-.org-notes{margin-top:20px;max-width:820px}.org-notes p{margin:7px 0 0;color:var(--muted);font-size:14.5px}
-@media(max-width:760px){.org-item,.org-item:nth-child(even){grid-template-columns:1fr;gap:7px;padding:19px 0}.org-item h3,.org-item p{grid-column:1;grid-row:auto}.org-item h3{font-size:20px}.org-item p{font-size:15.5px}.org-notes{margin-top:16px}}
+.org-notes{margin-top:20px;max-width:820px}.org-notes p{margin:0;color:var(--muted);font-size:14.5px}
+@media(max-width:760px){.org-notes{margin-top:16px}}
 </style>
 </head>
 <body>
@@ -294,33 +289,36 @@
     <div class="section-head">
       <p class="eyebrow">Условия работы</p>
       <h2>Организационные подробности</h2>
-      <p>Здесь - всё, что обычно нужно знать до записи: как договориться о времени, как проходит оплата и что делать, если планы изменились.</p>
+      <p>Здесь собраны условия записи, оплаты и переноса встреч, а также другие организационные подробности.</p>
     </div>
     <div class="org-grid">
       <article class="org-item">
         <h3>Запись</h3>
-        <p>Если хотите записаться на консультацию или супервизию, напишите мне в Telegram. Я предложу варианты времени, а после подтверждения встреча будет за вами.</p>
-        <p>Для онлайн-встречи нужен стабильный интернет, камера и место, где можно спокойно разговаривать.</p>
-      </article>
-      <article class="org-item">
-        <h3>Оплата</h3>
-        <p>Оплата после встречи. Можно оплатить из России и из-за рубежа. После оплаты я отправляю чек.</p>
-        <p>Работаю с юридическими лицами.</p>
+        <p>Для записи на консультацию или супервизию напишите мне в Telegram. Я предложу варианты времени, и после подтверждения время закрепляется за вами. Для онлайн-встречи нужен стабильный интернет, камера и возможность спокойно разговаривать.</p>
       </article>
       <article class="org-item">
         <h3>Перенос и отмена</h3>
-        <p>Если встречу нужно перенести или отменить, пожалуйста, напишите как можно раньше. Если до встречи осталось меньше 24 часов, моя рабочая договорённость - оплатить забронированное время полностью.</p>
-        <p>Для очной встречи есть ещё аренда кабинета. Если отмена или перенос происходят за 48-24 часа и аренда уже оплачена и не возвращается, я попрошу возместить фактически понесённую сумму.</p>
-        <p>Если я переношу встречу меньше чем за 24 часа до начала, следующая встреча для вас бесплатная.</p>
+        <p>Если встречу нужно перенести или отменить, пожалуйста, напишите как можно раньше. Если до встречи осталось меньше 24 часов, моя рабочая договорённость - оплатить забронированное время полностью. При отмене очной встречи за 48-24 часа я попрошу возместить аренду кабинета, если она уже оплачена и не возвращается.</p>
+      </article>
+      <article class="org-item">
+        <h3>Оплата</h3>
+        <p>Оплата после встречи. Принимаю оплату из России и из-за рубежа. После оплаты отправляю чек. Работаю с юридическими лицами.</p>
       </article>
       <article class="org-item">
         <h3>Связь и данные</h3>
         <p>На сайте нет формы записи, аналитики и рекламных cookie. Для записи вы сами переходите в Telegram. Данные для оплаты и чека остаются в личной переписке.</p>
       </article>
+      <article class="org-item">
+        <h3>Если встречу переношу я</h3>
+        <p>Я тоже стараюсь предупреждать о переносе не меньше чем за 24 часа. Если переношу позже, следующая встреча для вас бесплатная.</p>
+      </article>
+      <article class="org-item">
+        <h3>О консультации</h3>
+        <p>Психологическая консультация не является медицинской услугой и не заменяет медицинскую диагностику, лечение или психиатрическую помощь.</p>
+      </article>
     </div>
     <div class="org-notes">
       <p>Эти договорённости не ограничивают права клиента, предусмотренные законодательством РФ.</p>
-      <p>Психологическая консультация не является медицинской услугой и не заменяет медицинскую диагностику, лечение или психиатрическую помощь.</p>
     </div>
     <div class="buttons">
       <a class="btn primary" href="https://t.me/VeronikaSukhareva">Записаться</a>
