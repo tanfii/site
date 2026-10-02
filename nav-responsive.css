@@ -11,6 +11,17 @@
   .nav .mobile-menu-panel a:hover{background:var(--bg);text-decoration:none}
   .nav .mobile-menu-panel .mobile-menu-cta{color:var(--wine);font-weight:650}
 }
+
+@media(min-width:901px){
+  .hero-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,340px);column-gap:56px;align-items:start}
+  .hero-inner>*{grid-column:1}
+  .hero-inner::after{content:'';grid-column:2;grid-row:1 / span 7;align-self:center;width:100%;aspect-ratio:3/4;background:url('images/veronika-sukhareva-hero.webp') center center/cover no-repeat;border:1px solid var(--line)}
+}
+@media(max-width:900px){
+  .hero-inner{display:grid;grid-template-columns:1fr}
+  .hero-inner::after{content:'';display:block;width:min(100%,340px);aspect-ratio:3/4;margin-top:30px;background:url('images/veronika-sukhareva-hero.webp') center center/cover no-repeat;border:1px solid var(--line)}
+}
+
 @media(max-width:360px){
   .nav>.cta-link{display:none}
   .headerin{gap:8px}
