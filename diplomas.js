@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
           <article class="education-item">
             <h4>Психология и психологическое консультирование</h4>
             <p>Профессиональная переподготовка, АНО ДПО «Высшая школа психологии», 742 часа, 2019.</p>
-            <p class="education-detail">Стажировка — ФГБУН «Институт психологии РАН». Аттестационная работа: «Работа с болью в зеркале ЭОТ на примере головных болей, в том числе мигреней» — отлично.</p>
           </article>
           <article class="education-item">
             <h4>Организационная психология</h4>
@@ -67,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="education-items">
           <article class="education-item">
             <h4>Эмоционально-образная терапия</h4>
-            <p>Три ступени обучения в Центре эмоционально-образной терапии Линде Н. Д., по 72 академических часа каждая, 2018–2019.</p>
+            <p>Три ступени обучения в Центре эмоционально-образной терапии Линде Н. Д., по 72 академических часа каждая, 2018–2019. Третья ступень повторно пройдена в 2021.</p>
             <p class="education-detail">Отдельный курс «Клиническая эмоционально-образная терапия в работе с невротическими адаптациями», 2019.</p>
           </article>
           <article class="education-item">
@@ -100,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <span>Документы об образовании</span>
         <span class="education-documents-note">5 подборок</span>
       </summary>
+      <p class="education-documents-help">Документы показаны крупно. Нажмите на изображение, чтобы открыть его отдельно.</p>
       <div class="diploma-grid" aria-label="Документы об образовании"></div>
     </details>
   `;
@@ -113,8 +113,11 @@ document.addEventListener('DOMContentLoaded', function () {
     grid.dataset.rendered = '1';
 
     EDUCATION_DOCUMENTS.forEach(function (item, index) {
-      const figure = document.createElement('figure');
-      figure.className = 'diploma-card';
+      const card = document.createElement('a');
+      card.className = 'diploma-card';
+      card.href = item.file;
+      card.target = '_blank';
+      card.rel = 'noopener';
 
       const frame = document.createElement('div');
       frame.className = 'diploma-frame';
@@ -125,10 +128,14 @@ document.addEventListener('DOMContentLoaded', function () {
       img.loading = 'lazy';
       img.decoding = 'async';
 
-      frame.appendChild(img);
-      figure.appendChild(frame);
+      img.addEventListener('error', function () {
+        card.remove();
+      });
 
-      const caption = document.createElement('figcaption');
+      frame.appendChild(img);
+      card.appendChild(frame);
+
+      const caption = document.createElement('p');
       caption.className = 'diploma-caption';
       caption.append(document.createTextNode(item.title));
 
@@ -139,8 +146,13 @@ document.addEventListener('DOMContentLoaded', function () {
         caption.appendChild(note);
       }
 
-      figure.appendChild(caption);
-      grid.appendChild(figure);
+      const open = document.createElement('span');
+      open.className = 'diploma-open';
+      open.textContent = 'Открыть крупно';
+      caption.appendChild(open);
+
+      card.appendChild(caption);
+      grid.appendChild(card);
     });
   }
 
