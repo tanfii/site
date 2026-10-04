@@ -1,31 +1,31 @@
 const EDUCATION_DOCUMENTS = [
   {
-    file: 'images/diplomas/full/psychology-consulting-retraining-2019.jpg',
+    file: 'images/diplomas/psychology-consulting-retraining-2019.svg',
     title: 'Профессиональная переподготовка',
     note: 'Психология и психологическое консультирование, 2019'
   },
   {
-    file: 'images/diplomas/full/eot-stages-1-3-2018-2019.jpg',
+    file: 'images/diplomas/eot-stages-1-3-2018-2019.svg',
     title: 'Эмоционально-образная терапия',
     note: '1–3 ступени, 2018–2019'
   },
   {
-    file: 'images/diplomas/full/eot-stage-3-repeat-2021.jpg',
+    file: 'images/diplomas/eot-stage-3-repeat-2021.svg',
     title: 'ЭОТ - 3-я ступень, повторное прохождение',
     note: 'Базовый курс, 72 академических часа, 2021'
   },
   {
-    file: 'images/diplomas/full/eot-inner-child-stages-1-3-2020-2021.jpg',
+    file: 'images/diplomas/eot-inner-child-stages-1-3-2020-2021.svg',
     title: 'Внутренний ребёнок и внутренний родитель',
     note: '1–3 ступени в рамках ЭОТ, 2020–2021'
   },
   {
-    file: 'images/diplomas/full/orkt-solution-focused-72h-2024.jpg',
+    file: 'images/diplomas/orkt-solution-focused-72h-2024.svg',
     title: 'ОРКТ',
     note: 'Краткосрочное консультирование, ориентированное на решение, 72 часа, 2024'
   },
   {
-    file: 'images/diplomas/full/supervision-training-190h-2025.jpg',
+    file: 'images/diplomas/supervision-training-190h-2025.svg',
     title: 'Супервизия',
     note: 'Повышение квалификации, 190 часов, 2025'
   }
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <span>Документы об образовании</span>
         <span class="education-documents-note">6 документов</span>
       </summary>
-      <p class="education-documents-help">Нажмите на изображение, чтобы открыть оригинал отдельно.</p>
+      <p class="education-documents-help">Нажмите на изображение, чтобы открыть документ отдельно.</p>
       <div class="diploma-grid" aria-label="Документы об образовании"></div>
     </details>
   `;
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const open = document.createElement('span');
       open.className = 'diploma-open';
-      open.textContent = 'Открыть оригинал';
+      open.textContent = 'Открыть документ';
       caption.appendChild(open);
 
       card.appendChild(caption);
