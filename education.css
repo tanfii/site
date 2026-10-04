@@ -1,14 +1,37 @@
 .education{background:var(--bg)}
-.education .section-head{max-width:760px}
-.education-list{margin-bottom:0}
-.diploma-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;margin-top:30px}
-.diploma-grid:empty{display:none}
-.diploma-card{display:block;min-width:0;text-decoration:none;color:inherit}
-.diploma-frame{display:flex;align-items:center;justify-content:center;padding:10px;background:var(--paper);border:1px solid var(--line)}
-.diploma-card img{display:block;width:100%;height:auto}
-.diploma-card.is-landscape{grid-column:span 2}
-.diploma-caption{margin:9px 0 0;font-size:15.5px;line-height:1.45;color:var(--ink)}
-.diploma-note{display:block;margin-top:2px;font-size:14px;line-height:1.45;color:var(--muted)}
-.diploma-card:hover .diploma-caption{text-decoration:underline;text-underline-offset:3px}
-@media(max-width:760px){.diploma-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.diploma-card.is-landscape{grid-column:span 2}}
-@media(max-width:520px){.diploma-grid{grid-template-columns:1fr}.diploma-card.is-landscape{grid-column:span 1}.diploma-frame{padding:8px}}
+.education .section-head{max-width:790px}
+.education .section-head>p:not(.eyebrow){max-width:760px}
+
+.education-groups{border-top:1px solid var(--line)}
+.education-group{display:grid;grid-template-columns:minmax(210px,.58fr) minmax(0,1.42fr);gap:48px;padding:30px 0;border-bottom:1px solid var(--line)}
+.education-group-head h3{font-size:24px;line-height:1.25;font-weight:400;margin:4px 0 0}
+.education-label{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+.education-items{display:grid;gap:22px}
+.education-item{padding-bottom:22px;border-bottom:1px solid var(--line)}
+.education-item:last-child{padding-bottom:0;border-bottom:0}
+.education-item h4{margin:0 0 6px;font:400 20px/1.35 var(--typeface,Georgia,"Times New Roman",serif);color:var(--ink)}
+.education-item p{margin:0;color:#4c4944;font-size:16.5px;line-height:1.62}
+.education-item .education-detail{margin-top:6px;color:var(--muted);font-size:15px}
+
+.education-documents{margin-top:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.education-documents summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:58px;padding:14px 0;cursor:pointer;font-size:17px}
+.education-documents summary::-webkit-details-marker{display:none}
+.education-documents summary span:first-child::after{content:" +";display:inline-block;margin-left:8px;color:var(--muted)}
+.education-documents[open] summary span:first-child::after{content:" −"}
+.education-documents-note{color:var(--muted);font-size:14px}
+.diploma-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;padding:8px 0 30px}
+.diploma-card{display:block;min-width:0;margin:0}
+.diploma-frame{display:flex;align-items:center;justify-content:center;min-height:112px;padding:10px;background:var(--paper);border:1px solid var(--line)}
+.diploma-card img{display:block;width:100%;height:auto;max-height:120px;object-fit:contain}
+.diploma-caption{margin:9px 0 0;font-size:15px;line-height:1.4;color:var(--ink)}
+.diploma-note{display:block;margin-top:2px;font-size:13.5px;line-height:1.4;color:var(--muted)}
+
+@media(max-width:1040px){.diploma-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+  .education-group{grid-template-columns:1fr;gap:14px;padding:24px 0}
+  .education-group-head h3{font-size:22px}
+  .education-item h4{font-size:19px}
+  .education-item p{font-size:15.8px}
+  .diploma-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+}
+@media(max-width:460px){.diploma-grid{grid-template-columns:1fr}.diploma-frame{min-height:0}.diploma-card img{max-height:150px}}
