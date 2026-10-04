@@ -19,19 +19,20 @@
 .education-documents summary span:first-child::after{content:" +";display:inline-block;margin-left:8px;color:var(--muted)}
 .education-documents[open] summary span:first-child::after{content:" −"}
 .education-documents-note{color:var(--muted);font-size:14px}
-.diploma-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;padding:8px 0 30px}
-.diploma-card{display:block;min-width:0;margin:0}
-.diploma-frame{display:flex;align-items:center;justify-content:center;min-height:112px;padding:10px;background:var(--paper);border:1px solid var(--line)}
-.diploma-card img{display:block;width:100%;height:auto;max-height:120px;object-fit:contain}
-.diploma-caption{margin:9px 0 0;font-size:15px;line-height:1.4;color:var(--ink)}
-.diploma-note{display:block;margin-top:2px;font-size:13.5px;line-height:1.4;color:var(--muted)}
+.education-documents-help{margin:4px 0 22px;color:var(--muted);font-size:14.5px;line-height:1.5}
+.diploma-grid{display:grid;grid-template-columns:1fr;gap:34px;max-width:920px;padding:8px 0 34px}
+.diploma-card{display:block;min-width:0;margin:0;text-decoration:none;color:inherit}
+.diploma-frame{display:flex;align-items:center;justify-content:center;min-height:0;padding:14px;background:var(--paper);border:1px solid var(--line);cursor:zoom-in}
+.diploma-card img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.diploma-caption{margin:10px 0 0;font-size:16px;line-height:1.45;color:var(--ink)}
+.diploma-note{display:block;margin-top:2px;font-size:14px;line-height:1.45;color:var(--muted)}
+.diploma-open{display:inline-block;margin-top:5px;font-size:13.5px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
 
-@media(max-width:1040px){.diploma-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){
   .education-group{grid-template-columns:1fr;gap:14px;padding:24px 0}
   .education-group-head h3{font-size:22px}
   .education-item h4{font-size:19px}
   .education-item p{font-size:15.8px}
-  .diploma-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .diploma-grid{gap:26px}
+  .diploma-frame{padding:10px}
 }
-@media(max-width:460px){.diploma-grid{grid-template-columns:1fr}.diploma-frame{min-height:0}.diploma-card img{max-height:150px}}
