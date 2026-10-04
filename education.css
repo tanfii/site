@@ -1,39 +1,66 @@
 .education{background:var(--bg)}
-.education .section-head{max-width:790px}
-.education .section-head>p:not(.eyebrow){max-width:760px}
-
-.education-groups{border-top:1px solid var(--line)}
-.education-group{display:grid;grid-template-columns:minmax(210px,.58fr) minmax(0,1.42fr);gap:48px;padding:30px 0;border-bottom:1px solid var(--line)}
-.education-group-head h3{font-size:24px;line-height:1.25;font-weight:400;margin:4px 0 0}
-.education-label{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
-.education-items{display:grid;gap:22px}
-.education-item{padding-bottom:22px;border-bottom:1px solid var(--line)}
-.education-item:last-child{padding-bottom:0;border-bottom:0}
-.education-item h4{margin:0 0 6px;font:400 20px/1.35 var(--typeface,Georgia,"Times New Roman",serif);color:var(--ink)}
-.education-item p{margin:0;color:#4c4944;font-size:16.5px;line-height:1.62}
-.education-item .education-detail{margin-top:6px;color:var(--muted);font-size:15px}
-
-.education-documents{margin-top:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.education-documents summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:58px;padding:14px 0;cursor:pointer;font-size:17px}
+.education-groups{display:grid;gap:34px;margin-top:32px}
+.education-group{display:grid;grid-template-columns:minmax(190px,.72fr) minmax(0,2fr);gap:34px;padding-top:28px;border-top:1px solid var(--line)}
+.education-group:first-child{border-top:0;padding-top:0}
+.education-group-head h3{margin:3px 0 0;font-size:23px;line-height:1.2;color:var(--forest)}
+.education-label{margin:0;font-size:12px;line-height:1.2;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);font-weight:700}
+.education-items{display:grid;gap:0}
+.education-item{padding:0 0 21px;margin:0 0 21px;border-bottom:1px solid var(--line)}
+.education-item:last-child{padding-bottom:0;margin-bottom:0;border-bottom:0}
+.education-item h4{margin:0 0 6px;font-size:18px;line-height:1.3;font-weight:700;color:var(--ink)}
+.education-item p{margin:0;max-width:760px;color:var(--muted);font-size:15.5px;line-height:1.55}
+.education-item .education-detail{margin-top:7px;font-size:14px}
+.education-documents{margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.education-documents summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0;cursor:pointer;list-style:none;font-weight:700;color:var(--forest)}
 .education-documents summary::-webkit-details-marker{display:none}
-.education-documents summary span:first-child::after{content:" +";display:inline-block;margin-left:8px;color:var(--muted)}
-.education-documents[open] summary span:first-child::after{content:" −"}
-.education-documents-note{color:var(--muted);font-size:14px}
-.education-documents-help{margin:4px 0 20px;color:var(--muted);font-size:14.5px;line-height:1.5}
-.diploma-grid{display:grid;grid-template-columns:1fr;gap:34px;padding:8px 0 34px}
-.diploma-card{display:block;min-width:0;margin:0;text-decoration:none;color:inherit}
-.diploma-frame{display:flex;align-items:center;justify-content:center;padding:18px;background:var(--paper);border:1px solid var(--line)}
-.diploma-card img{display:block;width:auto;max-width:100%;height:auto;object-fit:contain}
-.diploma-caption{margin:10px 0 0;font-size:16px;line-height:1.4;color:var(--ink)}
-.diploma-note{display:block;margin-top:2px;font-size:14px;line-height:1.4;color:var(--muted)}
-.diploma-open{display:inline-block;margin-top:5px;font-size:14px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
-.diploma-card:hover .diploma-open{color:var(--ink)}
-
+.education-documents summary::after{content:'+';font-size:26px;line-height:1;font-weight:400;color:var(--wine);margin-left:auto}
+.education-documents[open] summary::after{content:'−'}
+.education-documents-note{font-size:13px;color:var(--muted);font-weight:400;margin-right:8px;white-space:nowrap}
+.education-documents-help{margin:2px 0 20px;color:var(--muted);font-size:14px;line-height:1.45}
+.diploma-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px;padding:4px 0 34px}
+.diploma-card{appearance:none;border:0;background:transparent;padding:0;margin:0;min-width:0;text-align:left;color:var(--ink);font:inherit;cursor:pointer}
+.diploma-frame{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;background:#e9e3d9;border:1px solid var(--line);overflow:hidden;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.diploma-card:hover .diploma-frame,.diploma-card:focus-visible .diploma-frame{transform:translateY(-2px);border-color:#bcb2a5;box-shadow:0 8px 26px rgba(34,35,31,.08)}
+.diploma-card:focus-visible{outline:2px solid var(--wine);outline-offset:5px}
+.diploma-card img{display:block;width:100%;height:100%;object-fit:contain}
+.diploma-caption{margin:12px 0 0;font-size:16px;line-height:1.35;font-weight:700;color:var(--ink)}
+.diploma-note{display:block;margin-top:5px;font-size:14px;line-height:1.4;font-weight:400;color:var(--muted)}
+.diploma-open{display:inline-block;margin-top:8px;font-size:13px;line-height:1.3;font-weight:700;color:var(--wine)}
+.diploma-dialog{width:min(980px,calc(100vw - 32px));max-width:none;max-height:calc(100vh - 32px);margin:auto;border:0;padding:0;background:var(--paper);color:var(--ink);box-shadow:0 24px 80px rgba(0,0,0,.35)}
+.diploma-dialog::backdrop{background:rgba(24,22,20,.72)}
+.diploma-dialog-shell{position:relative;padding:22px}
+.diploma-dialog-close{position:absolute;top:16px;right:18px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:13px;padding:7px 10px;cursor:pointer}
+.diploma-dialog-head{padding-right:90px;margin-bottom:14px}
+.diploma-dialog-title{margin:0;font-size:21px;line-height:1.25;font-weight:700;color:var(--forest)}
+.diploma-dialog-meta{margin:5px 0 0;color:var(--muted);font-size:14px;line-height:1.4}
+.diploma-dialog-media{min-height:280px;max-height:68vh;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:18px;background:#e9e3d9;border:1px solid var(--line)}
+.diploma-dialog-media img{display:block;width:auto;max-width:100%;height:auto;max-height:none;margin:auto;background:#fff}
+.diploma-loading{margin:auto;padding:70px 20px;color:var(--muted);font-size:14px;text-align:center}
+.diploma-dialog-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-top:14px}
+.diploma-prev,.diploma-next{border:0;background:transparent;color:var(--forest);font:inherit;font-size:14px;font-weight:700;padding:7px 0;cursor:pointer}
+.diploma-prev{text-align:left}.diploma-next{text-align:right;justify-self:end}
+.diploma-prev:disabled,.diploma-next:disabled{opacity:.28;cursor:default}
+.diploma-counter{color:var(--muted);font-size:13px}
+.diploma-open-file{display:inline-block;margin-top:10px;color:var(--wine);font-size:14px;text-underline-offset:3px}
+.final-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.contact-alt{margin:0;max-width:430px;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.contact-alt a,.org-item a{color:inherit;text-underline-offset:3px}
 @media(max-width:760px){
-  .education-group{grid-template-columns:1fr;gap:14px;padding:24px 0}
-  .education-group-head h3{font-size:22px}
-  .education-item h4{font-size:19px}
-  .education-item p{font-size:15.8px}
-  .diploma-grid{gap:26px}
-  .diploma-frame{padding:10px}
+  .education-groups{gap:28px}
+  .education-group{grid-template-columns:1fr;gap:16px;padding-top:23px}
+  .education-group-head h3{font-size:21px}
+  .education-item h4{font-size:17px}
+  .education-documents{margin-top:30px}
+  .education-documents summary{align-items:flex-start;flex-wrap:wrap}
+  .education-documents-note{width:100%;order:3;margin:0}
+  .diploma-grid{grid-template-columns:1fr;gap:26px}
+  .diploma-frame{padding:12px}
+  .diploma-dialog{width:calc(100vw - 14px);max-height:calc(100vh - 14px)}
+  .diploma-dialog-shell{padding:14px}
+  .diploma-dialog-close{top:10px;right:10px}
+  .diploma-dialog-head{padding-right:78px}
+  .diploma-dialog-title{font-size:18px}
+  .diploma-dialog-media{min-height:200px;max-height:72vh;padding:10px}
+  .diploma-dialog-nav{grid-template-columns:1fr 1fr}
+  .diploma-counter{grid-column:1/-1;grid-row:2;text-align:center}
 }
