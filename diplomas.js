@@ -20,11 +20,11 @@ const EDUCATION_COLLECTIONS = [
         label: '1-я ступень, 2018'
       },
       {
-        src: 'images/diplomas/eot-stages-1-3-2018-2019.svg',
-        label: '2-я ступень - в общей подборке 1–3 ступеней'
+        data: 'images/diplomas/data/full/eot-stage-2-320.b64',
+        label: '2-я ступень, 2018'
       },
       {
-        data: 'images/diplomas/data/full/eot-stage-3.b64',
+        data: 'images/diplomas/data/full/eot-stage-3-320.b64',
         label: '3-я ступень, 2019'
       },
       {
