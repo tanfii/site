@@ -10,6 +10,11 @@ const EDUCATION_DOCUMENTS = [
     note: '1–3 ступени, 2018–2019'
   },
   {
+    file: 'images/diplomas/eot-stage-3-repeat-2021.svg',
+    title: 'ЭОТ - 3-я ступень, повторное прохождение',
+    note: 'Базовый курс, 72 академических часа, 2021'
+  },
+  {
     file: 'images/diplomas/eot-inner-child-stages-1-3-2020-2021.svg',
     title: 'Внутренний ребёнок и внутренний родитель',
     note: '1–3 ступени в рамках ЭОТ, 2020–2021'
@@ -97,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <details class="education-documents">
       <summary>
         <span>Документы об образовании</span>
-        <span class="education-documents-note">5 подборок</span>
+        <span class="education-documents-note">6 документов</span>
       </summary>
       <p class="education-documents-help">Документы показаны крупно. Нажмите на изображение, чтобы открыть его отдельно.</p>
       <div class="diploma-grid" aria-label="Документы об образовании"></div>
