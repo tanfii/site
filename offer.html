@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Публичная оферта — Вероника Сухарева</title>
+<meta name="description" content="Публичная оферта Вероники Сухаревой.">
+<link rel="canonical" href="https://veronikadumaet.ru/offer.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles-20260928.css">
+<link rel="stylesheet" href="typography-20260928.css">
+<style>
+.offer-page{padding:88px 0 96px;background:var(--bg);min-height:70vh}.offer-shell{max-width:860px}.offer-back{display:inline-block;margin-bottom:28px;color:var(--forest);text-decoration:none}.offer-back:hover{text-decoration:underline}.offer-page h1{max-width:760px}.offer-updated{margin:14px 0 32px;color:var(--muted);font-size:14px}.offer-content{font-size:17px;line-height:1.72}.offer-content h2{margin:38px 0 14px;font-size:28px}.offer-content h3{margin:30px 0 12px;font-size:22px}.offer-content p{margin:0 0 18px}.offer-content ul,.offer-content ol{margin:0 0 20px;padding-left:24px}.offer-content li{margin:0 0 8px}.offer-loading{color:var(--muted)}
+@media(max-width:760px){.offer-page{padding:64px 0 72px}.offer-content{font-size:16px}.offer-content h2{font-size:24px}.offer-content h3{font-size:20px}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="wrap headerin">
+    <a class="brand" href="./">Вероника Сухарева</a>
+    <nav class="nav" aria-label="Навигация по странице">
+      <a href="./">На главную</a>
+      <a class="cta-link" href="https://t.me/VeronikaSukhareva">Записаться</a>
+    </nav>
+  </div>
+</header>
+<main class="offer-page">
+  <div class="wrap offer-shell">
+    <a class="offer-back" href="./">← На главную</a>
+    <p class="eyebrow">Документы</p>
+    <h1>Публичная оферта</h1>
+    <p class="offer-updated" hidden></p>
+    <div class="offer-content" aria-live="polite"><p class="offer-loading">Загрузка...</p></div>
+  </div>
+</main>
+<footer>
+  <div class="wrap foot">
+    <span>© Вероника Сухарева</span>
+    <span><a href="./#org">условия работы</a> · <a href="https://t.me/sukhareva_psy">Telegram-канал</a> · <a href="https://t.me/VeronikaSukhareva">запись</a></span>
+  </div>
+</footer>
+<script>
+(async function () {
+  const content = document.querySelector('.offer-content');
+  const updated = document.querySelector('.offer-updated');
+  try {
+    const response = await fetch('/data/offer.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error(String(response.status));
+    const data = await response.json();
+    content.innerHTML = data.body && data.body.trim() ? data.body : '<p>Текст оферты пока не опубликован.</p>';
+    if (data.updated) {
+      const date = new Date(data.updated + 'T00:00:00');
+      updated.textContent = 'Редакция от ' + new Intl.DateTimeFormat('ru-RU').format(date);
+      updated.hidden = false;
+    }
+  } catch (error) {
+    content.innerHTML = '<p>Сейчас документ не удалось загрузить. Попробуйте открыть страницу позже.</p>';
+  }
+})();
+</script>
+</body>
+</html>
