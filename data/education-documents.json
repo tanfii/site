@@ -1,22 +1,22 @@
 {
   "retraining": {
-    "document": ""
+    "document": "/images/diplomas/uploads/psychology-consulting-retraining-2019.webp"
   },
   "eot": {
-    "stage1": "",
-    "stage2": "",
-    "stage3": "",
-    "stage3_repeat": ""
+    "stage1": "/images/diplomas/uploads/eot-stage-1-2018.webp",
+    "stage2": "/images/diplomas/uploads/eot-stage-2-2018.webp",
+    "stage3": "/images/diplomas/uploads/eot-stage-3-2019.webp",
+    "stage3_repeat": "/images/diplomas/uploads/eot-stage-3-repeat-2021.webp"
   },
   "inner_child": {
-    "stage1": "",
-    "stage2": "",
-    "stage3": ""
+    "stage1": "/images/diplomas/uploads/eot-inner-child-stage-1-2020.webp",
+    "stage2": "/images/diplomas/uploads/eot-inner-child-stage-2-2020.webp",
+    "stage3": "/images/diplomas/uploads/eot-inner-child-stage-3-2021.webp"
   },
   "orkt": {
-    "document": ""
+    "document": "/images/diplomas/uploads/orkt-solution-focused-72h-2024.webp"
   },
   "supervision": {
-    "document": ""
+    "document": "/images/diplomas/uploads/supervision-training-190h-2025.webp"
   }
 }
