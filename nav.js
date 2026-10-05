@@ -7,6 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const brand = document.querySelector('.brand');
   if (brand) brand.setAttribute('href', './');
 
+  const footerLinks = document.querySelector('.foot span:last-child');
+  if (footerLinks && !footerLinks.querySelector('a[href="/offer.html"]')) {
+    footerLinks.append(document.createTextNode(' · '));
+    const offerLink = document.createElement('a');
+    offerLink.href = '/offer.html';
+    offerLink.textContent = 'оферта';
+    footerLinks.appendChild(offerLink);
+  }
+
   const menu = document.querySelector('.mobile-menu');
   if (!menu) return;
 
