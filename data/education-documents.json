@@ -1,0 +1,22 @@
+{
+  "retraining": {
+    "document": ""
+  },
+  "eot": {
+    "stage1": "",
+    "stage2": "",
+    "stage3": "",
+    "stage3_repeat": ""
+  },
+  "inner_child": {
+    "stage1": "",
+    "stage2": "",
+    "stage3": ""
+  },
+  "orkt": {
+    "document": ""
+  },
+  "supervision": {
+    "document": ""
+  }
+}
