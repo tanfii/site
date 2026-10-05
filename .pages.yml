@@ -1,0 +1,116 @@
+media:
+  - name: education_documents
+    label: Дипломы и сертификаты
+    input: images/diplomas/uploads
+    output: /images/diplomas/uploads
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+
+content:
+  - name: education_documents
+    label: Дипломы и сертификаты
+    type: file
+    path: data/education-documents.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: retraining
+        label: Базовая подготовка
+        type: object
+        fields:
+          - name: document
+            label: Профпереподготовка — психология и психологическое консультирование, 2019
+            type: image
+            description: Загрузите исходную фотографию целиком. Отдельное превью делать не нужно.
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+
+      - name: eot
+        label: Эмоционально-образная терапия
+        type: object
+        fields:
+          - name: stage1
+            label: 1-я ступень, 2018
+            type: image
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: stage2
+            label: 2-я ступень, 2018
+            type: image
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: stage3
+            label: 3-я ступень, 2019
+            type: image
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: stage3_repeat
+            label: 3-я ступень — повторное прохождение, 2021
+            type: image
+            description: Это второй отдельный документ о прохождении 3-й ступени.
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+
+      - name: inner_child
+        label: Внутренний ребёнок и внутренний родитель
+        type: object
+        fields:
+          - name: stage1
+            label: 1-я ступень, 2020
+            type: image
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: stage2
+            label: 2-я ступень, 2020
+            type: image
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: stage3
+            label: 3-я ступень, 2021
+            type: image
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+
+      - name: orkt
+        label: ОРКТ
+        type: object
+        fields:
+          - name: document
+            label: Краткосрочное психологическое консультирование, ориентированное на решение, 2024
+            type: image
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+
+      - name: supervision
+        label: Супервизия
+        type: object
+        fields:
+          - name: document
+            label: Обучение супервизии, 190 часов, 2025
+            type: image
+            options:
+              media: education_documents
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
