@@ -114,3 +114,24 @@ content:
               media: education_documents
               extensions: [jpg, jpeg, png, webp]
               rename: safe
+
+  - name: offer
+    label: Оферта
+    type: file
+    path: data/offer.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: updated
+        label: Дата редакции
+        type: date
+      - name: body
+        label: Текст оферты
+        type: rich-text
+        options:
+          format: html
+          media: false
+          switcher: true
