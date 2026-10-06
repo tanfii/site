@@ -54,9 +54,9 @@
     "portrait_alt": "Вероника Сухарева"
   },
   "promo": {
-    "enabled": false,
-    "label": "Специальная стоимость",
+    "enabled": true,
+    "label": "Акция. Вопросы по сну и его качеству",
     "consultation_price": 4500,
-    "valid_until": ""
+    "valid_until": "2026-11-03"
   }
 }
