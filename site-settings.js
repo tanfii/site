@@ -21,6 +21,9 @@
 
     const existing = document.querySelector('.cms-promo-card');
     if (existing) existing.remove();
+    const existingStandardLabel = document.querySelector('.cms-standard-label');
+    if (existingStandardLabel) existingStandardLabel.remove();
+
     if (!isPromoActive(promo)) return;
 
     const card = document.createElement('aside');
@@ -29,14 +32,15 @@
 
     const kicker = document.createElement('div');
     kicker.className = 'cms-promo-kicker';
-    kicker.textContent = 'Временное предложение';
+    kicker.textContent = 'Сейчас отдельно беру';
 
     const title = document.createElement('h3');
-    title.textContent = promo.label || 'Специальная стоимость консультации';
+    title.textContent = (promo.label || 'Специальная стоимость консультации')
+      .replace(/^Акция[.:]?\s*/i, '');
 
     const priceLine = document.createElement('p');
     priceLine.className = 'cms-promo-price';
-    priceLine.appendChild(document.createTextNode('Стоимость консультации по этому запросу — '));
+    priceLine.appendChild(document.createTextNode('Консультация по этому запросу — '));
 
     const current = document.createElement('strong');
     current.textContent = formatMoney(promo.consultation_price, currency);
@@ -44,10 +48,12 @@
 
     if (Number(basePrice) > Number(promo.consultation_price)) {
       priceLine.appendChild(document.createTextNode(' вместо '));
-      const old = document.createElement('s');
-      old.textContent = formatMoney(basePrice, currency);
-      priceLine.appendChild(old);
+      const oldPrice = document.createElement('s');
+      oldPrice.textContent = formatMoney(basePrice, currency);
+      priceLine.appendChild(oldPrice);
     }
+
+    card.append(kicker, title, priceLine);
 
     if (promo.valid_until) {
       const until = document.createElement('p');
@@ -57,20 +63,23 @@
         month: 'long',
         year: 'numeric'
       }).format(new Date(promo.valid_until + 'T00:00:00'));
-      card.append(kicker, title, priceLine, until);
-    } else {
-      card.append(kicker, title, priceLine);
+      card.appendChild(until);
     }
 
     if (bookingUrl) {
       const link = document.createElement('a');
-      link.className = 'btn ghost cms-promo-cta';
+      link.className = 'cms-promo-link';
       link.href = bookingUrl;
-      link.textContent = 'Записаться по акции';
+      link.textContent = 'Написать про этот запрос →';
       card.appendChild(link);
     }
 
-    host.insertAdjacentElement('beforebegin', card);
+    const standardLabel = document.createElement('p');
+    standardLabel.className = 'cms-standard-label';
+    standardLabel.textContent = 'Стандартный формат';
+
+    host.insertAdjacentElement('beforebegin', standardLabel);
+    standardLabel.insertAdjacentElement('beforebegin', card);
   }
 
   function setAllLinks(oldHref, newHref) {
