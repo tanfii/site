@@ -7,8 +7,7 @@
   "practice": {
     "audience_text": "Работаю со взрослыми с 18 лет, индивидуально.",
     "not_work_with": "Не работаю с зависимостями в активной фазе, с детьми и подростками, парами и семьями.",
-    "city": "Москва",
-    "offline_place": "район м. Краснопресненская"
+    "city": "Москва"
   },
   "services": {
     "consultation_online": {
@@ -21,7 +20,7 @@
     },
     "consultation_offline": {
       "enabled": true,
-      "title": "Очно в Москве",
+      "title": "Очно",
       "price": 6000,
       "currency": "₽",
       "duration": "55 минут",
