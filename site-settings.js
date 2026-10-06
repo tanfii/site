@@ -7,79 +7,111 @@
     return new Intl.NumberFormat('ru-RU').format(number) + ' ' + (currency || '₽');
   }
 
-  function isPromoActive(promo) {
-    if (!promo || promo.enabled !== true || Number(promo.consultation_price) <= 0) return false;
-    if (!promo.valid_until) return true;
-
-    const end = new Date(promo.valid_until + 'T23:59:59');
-    return !Number.isNaN(end.getTime()) && end >= new Date();
+  function localDateKey(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return year + '-' + month + '-' + day;
   }
 
-  function renderPromoCard(promo, basePrice, currency, bookingUrl) {
+  function isPromotionActive(promotion, todayKey) {
+    if (!promotion || promotion.enabled !== true) return false;
+    if (!promotion.label || Number(promotion.consultation_price) <= 0) return false;
+
+    const start = promotion.start_date || '';
+    const end = promotion.end_date || '';
+    if (start && todayKey < start) return false;
+    if (end && todayKey > end) return false;
+    return true;
+  }
+
+  function formatPromotionEnd(dateString) {
+    if (!dateString) return '';
+    const date = new Date(dateString + 'T00:00:00');
+    if (Number.isNaN(date.getTime())) return '';
+
+    const now = new Date();
+    const options = date.getFullYear() === now.getFullYear()
+      ? { day: 'numeric', month: 'long' }
+      : { day: 'numeric', month: 'long', year: 'numeric' };
+
+    return new Intl.DateTimeFormat('ru-RU', options).format(date);
+  }
+
+  function renderPromotions(promotions, basePrice, currency, bookingUrl) {
     const host = document.querySelector('#format .format-list');
     if (!host) return;
 
-    const existing = document.querySelector('.cms-promo-card');
-    if (existing) existing.remove();
-    const existingStandardLabel = document.querySelector('.cms-standard-label');
-    if (existingStandardLabel) existingStandardLabel.remove();
+    document.querySelectorAll('.cms-promo-section, .cms-other-topics').forEach(function (node) {
+      node.remove();
+    });
 
-    if (!isPromoActive(promo)) return;
+    const list = Array.isArray(promotions) ? promotions : [];
+    const todayKey = localDateKey(new Date());
+    const active = list
+      .filter(function (promotion) {
+        return isPromotionActive(promotion, todayKey);
+      })
+      .sort(function (a, b) {
+        return String(a.start_date || '').localeCompare(String(b.start_date || ''));
+      });
 
-    const card = document.createElement('aside');
-    card.className = 'cms-promo-card';
-    card.setAttribute('aria-label', 'Временное предложение');
+    if (!active.length) return;
 
-    const kicker = document.createElement('p');
-    kicker.className = 'cms-promo-kicker';
-    kicker.textContent = 'Сейчас отдельно';
+    const section = document.createElement('div');
+    section.className = 'cms-promo-section';
+    section.setAttribute('aria-label', 'Акция');
 
-    const main = document.createElement('div');
-    main.className = 'cms-promo-main';
+    const heading = document.createElement('p');
+    heading.className = 'cms-promo-heading';
+    heading.textContent = 'Акция';
+    section.appendChild(heading);
 
-    const copy = document.createElement('div');
-    copy.className = 'cms-promo-copy';
+    active.forEach(function (promotion) {
+      const row = document.createElement('div');
+      row.className = 'cms-promo-row';
 
-    const title = document.createElement('h3');
-    title.textContent = (promo.label || 'Специальная стоимость консультации')
-      .replace(/^Акция[.:]?\s*/i, '');
+      const copy = document.createElement('div');
+      copy.className = 'cms-promo-copy';
 
-    const meta = document.createElement('p');
-    meta.className = 'cms-promo-meta';
+      const title = document.createElement('h3');
+      title.textContent = String(promotion.label || '').replace(/^Акция[.:]?\s*/i, '');
 
-    const metaParts = [];
-    if (promo.valid_until) {
-      const promoDate = new Date(promo.valid_until + 'T00:00:00');
-      const now = new Date();
-      const dateOptions = promoDate.getFullYear() === now.getFullYear()
-        ? { day: 'numeric', month: 'long' }
-        : { day: 'numeric', month: 'long', year: 'numeric' };
-      metaParts.push('до ' + new Intl.DateTimeFormat('ru-RU', dateOptions).format(promoDate));
-    }
-    if (Number(basePrice) > Number(promo.consultation_price)) {
-      metaParts.push('обычная стоимость ' + formatMoney(basePrice, currency));
-    }
-    meta.textContent = metaParts.join(' · ');
+      const meta = document.createElement('p');
+      meta.className = 'cms-promo-meta';
+      const metaParts = [];
+      const endLabel = formatPromotionEnd(promotion.end_date);
+      if (endLabel) metaParts.push('до ' + endLabel);
+      if (Number(basePrice) > Number(promotion.consultation_price)) {
+        metaParts.push('обычная стоимость ' + formatMoney(basePrice, currency));
+      }
+      meta.textContent = metaParts.join(' · ');
 
-    copy.append(title);
-    if (meta.textContent) copy.appendChild(meta);
+      copy.appendChild(title);
+      if (meta.textContent) copy.appendChild(meta);
 
-    const price = document.createElement('strong');
-    price.className = 'cms-promo-price';
-    price.textContent = formatMoney(promo.consultation_price, currency);
+      if (bookingUrl) {
+        const link = document.createElement('a');
+        link.className = 'cms-promo-link';
+        link.href = bookingUrl;
+        link.textContent = 'Написать про этот запрос →';
+        copy.appendChild(link);
+      }
 
-    main.append(copy, price);
-    card.append(kicker, main);
+      const price = document.createElement('strong');
+      price.className = 'cms-promo-price';
+      price.textContent = formatMoney(promotion.consultation_price, currency);
 
-    if (bookingUrl) {
-      const link = document.createElement('a');
-      link.className = 'cms-promo-link';
-      link.href = bookingUrl;
-      link.textContent = 'Написать про этот запрос →';
-      card.appendChild(link);
-    }
+      row.append(copy, price);
+      section.appendChild(row);
+    });
 
-    host.insertAdjacentElement('beforebegin', card);
+    const otherHeading = document.createElement('p');
+    otherHeading.className = 'cms-other-topics';
+    otherHeading.textContent = 'Другие темы';
+
+    host.insertAdjacentElement('beforebegin', otherHeading);
+    otherHeading.insertAdjacentElement('beforebegin', section);
   }
 
   function setAllLinks(oldHref, newHref) {
@@ -102,7 +134,7 @@
     const contacts = data.contacts || {};
     const practice = data.practice || {};
     const services = data.services || {};
-    const promo = data.promo || {};
+    const promotions = Array.isArray(data.promotions) ? data.promotions : [];
 
     setAllLinks('https://t.me/VeronikaSukhareva', contacts.booking_telegram);
     setAllLinks('https://t.me/sukhareva_psy', contacts.channel);
@@ -212,8 +244,8 @@
     if (portrait && photo.portrait) portrait.src = photo.portrait;
     if (portrait && photo.portrait_alt) portrait.alt = photo.portrait_alt;
 
-    renderPromoCard(
-      promo,
+    renderPromotions(
+      promotions,
       online.price,
       online.currency,
       contacts.booking_telegram
