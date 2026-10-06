@@ -16,20 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
     footerLinks.appendChild(offerLink);
   }
 
-  document.querySelectorAll('.org-item').forEach(function (item) {
-    const heading = item.querySelector('h3');
-    const paragraph = item.querySelector('p');
-    if (!heading || !paragraph) return;
-
-    if (heading.textContent.trim() === 'Перенос и отмена') {
-      paragraph.textContent = 'Если встречу нужно перенести или отменить, пожалуйста, напишите как можно раньше, желательно не меньше чем за 24 часа. При отказе от ещё не оказанной встречи оплачиваются только фактически понесённые расходы, если они возникли. Для очной встречи это может быть невозвратная аренда кабинета.';
-    }
-
-    if (heading.textContent.trim() === 'Связь и данные') {
-      paragraph.textContent = 'На сайте нет форм записи, личного кабинета, аналитики и рекламных cookie. Для записи вы сами переходите в Telegram или пишете на почту. Отдельную базу клиентских анкет, электронные медицинские карты и аудио- или видеозаписи сессий я не веду. Для записи не нужно присылать диагнозы или подробные сведения о здоровье.';
-    }
-  });
-
   const menu = document.querySelector('.mobile-menu');
   if (!menu) return;
 
