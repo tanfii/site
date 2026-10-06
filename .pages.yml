@@ -302,22 +302,34 @@ content:
           - name: portrait_alt
             label: Подпись для доступности
             type: string
-      - name: promo
-        label: Временное предложение
+      - name: promotions
+        label: Акции по расписанию
+        description: Можно заранее создать акции на месяцы вперёд. На сайте автоматически показываются только включённые акции, у которых текущая дата попадает между датой начала и датой окончания.
         type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}: {start_date} — {end_date}"
         fields:
           - name: enabled
             label: Включить
             type: boolean
           - name: label
-            label: Подпись
+            label: Тема акции
             type: string
+            required: true
           - name: consultation_price
-            label: Цена консультации по предложению
+            label: Цена консультации
             type: number
-          - name: valid_until
-            label: Действует до
+            required: true
+          - name: start_date
+            label: Показывать с
             type: date
+            required: true
+          - name: end_date
+            label: Показывать до
+            type: date
+            required: true
 
   - name: telegram_posts
     label: Telegram — топ постов
