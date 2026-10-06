@@ -7,6 +7,14 @@ media:
     extensions: [jpg, jpeg, png, webp]
     rename: safe
 
+  - name: site_images
+    label: Фото сайта
+    input: images
+    output: /images
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+
 content:
   - name: education_documents
     label: Дипломы и сертификаты
@@ -135,3 +143,244 @@ content:
           format: html
           media: false
           switcher: true
+
+  - name: site_settings
+    label: Настройки сайта
+    type: file
+    path: data/site-settings.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: contacts
+        label: Контакты
+        type: object
+        fields:
+          - name: booking_telegram
+            label: Telegram для записи
+            type: string
+          - name: channel
+            label: Telegram-канал
+            type: string
+          - name: email
+            label: Электронная почта
+            type: string
+      - name: practice
+        label: Практика и формат
+        type: object
+        fields:
+          - name: audience_text
+            label: С кем работаю
+            type: text
+          - name: not_work_with
+            label: С кем не работаю
+            type: text
+          - name: city
+            label: Город очной работы
+            type: string
+          - name: offline_place
+            label: Район / метро
+            type: string
+      - name: services
+        label: Услуги и цены
+        type: object
+        fields:
+          - name: consultation_online
+            label: Индивидуальная консультация онлайн
+            type: object
+            fields:
+              - name: enabled
+                label: Показывать
+                type: boolean
+              - name: title
+                label: Название
+                type: string
+              - name: price
+                label: Цена
+                type: number
+              - name: currency
+                label: Валюта
+                type: string
+              - name: duration
+                label: Длительность
+                type: string
+              - name: platform
+                label: Платформа
+                type: string
+          - name: consultation_offline
+            label: Индивидуальная консультация очно
+            type: object
+            fields:
+              - name: enabled
+                label: Показывать
+                type: boolean
+              - name: title
+                label: Название
+                type: string
+              - name: price
+                label: Цена
+                type: number
+              - name: currency
+                label: Валюта
+                type: string
+              - name: duration
+                label: Длительность
+                type: string
+              - name: location
+                label: Место
+                type: string
+          - name: supervision
+            label: Супервизия
+            type: object
+            fields:
+              - name: enabled
+                label: Показывать
+                type: boolean
+              - name: title
+                label: Название
+                type: string
+              - name: price
+                label: Цена
+                type: number
+              - name: currency
+                label: Валюта
+                type: string
+              - name: duration
+                label: Длительность
+                type: string
+              - name: platform
+                label: Платформа
+                type: string
+      - name: payment_note
+        label: Примечание об оплате
+        type: text
+      - name: organization
+        label: Условия работы
+        type: object
+        fields:
+          - name: booking
+            label: Запись
+            type: text
+          - name: cancellation
+            label: Перенос и отмена
+            type: text
+          - name: payment
+            label: Оплата
+            type: text
+          - name: therapist_cancellation
+            label: Если встречу переношу я
+            type: text
+          - name: data
+            label: Связь и данные
+            type: text
+          - name: consultation
+            label: О консультации
+            type: text
+          - name: note
+            label: Примечание под условиями
+            type: text
+      - name: education
+        label: Текущий статус образования
+        type: object
+        fields:
+          - name: master_title
+            label: Название строки
+            type: string
+          - name: master_text
+            label: Статус магистратуры
+            type: string
+      - name: photo
+        label: Фото
+        type: object
+        fields:
+          - name: portrait
+            label: Основной портрет
+            type: image
+            options:
+              media: site_images
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: portrait_alt
+            label: Подпись для доступности
+            type: string
+      - name: promo
+        label: Временное предложение
+        type: object
+        fields:
+          - name: enabled
+            label: Включить
+            type: boolean
+          - name: label
+            label: Подпись
+            type: string
+          - name: consultation_price
+            label: Цена консультации по предложению
+            type: number
+          - name: valid_until
+            label: Действует до
+            type: date
+
+  - name: telegram_posts
+    label: Telegram — топ постов
+    description: Статистика обновляется автоматически. Здесь можно выключить неподходящий пост и поправить заголовок или рубрику для сайта.
+    type: file
+    path: data/telegram-posts.json
+    format: json
+    list: true
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: show
+        label: Показывать на сайте
+        type: boolean
+      - name: title
+        label: Заголовок для сайта
+        type: string
+      - name: topic
+        label: Рубрика
+        type: string
+      - name: id
+        label: ID поста
+        type: number
+        readonly: true
+      - name: url
+        label: Ссылка
+        type: string
+        readonly: true
+      - name: reactions
+        label: Реакции
+        type: number
+        readonly: true
+      - name: views
+        label: Просмотры
+        type: number
+        readonly: true
+      - name: score
+        label: Рейтинг
+        type: number
+        readonly: true
+      - name: auto_info
+        label: "Автофильтр: информационный"
+        type: boolean
+        readonly: true
+      - name: date
+        label: Дата Telegram
+        type: string
+        readonly: true
+      - name: text_preview
+        label: Фрагмент поста
+        type: text
+        readonly: true
+
+actions:
+  - name: refresh_telegram
+    label: Обновить топ Telegram
+    workflow: update-telegram-top.yml
+    confirm:
+      title: Обновить рейтинг постов?
+      message: Будут заново собраны публичные просмотры и реакции Telegram. Ваши правки заголовков, рубрик и переключателей сохранятся.
+      button: Обновить
