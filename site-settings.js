@@ -139,21 +139,6 @@
     setAllLinks('https://t.me/VeronikaSukhareva', contacts.booking_telegram);
     setAllLinks('https://t.me/sukhareva_psy', contacts.channel);
 
-    const finalCopy = document.querySelector('.final .final-grid > div');
-    if (finalCopy && contacts.email) {
-      let emailNote = finalCopy.querySelector('.cms-email-note');
-      if (!emailNote) {
-        emailNote = document.createElement('p');
-        emailNote.className = 'cms-email-note';
-        finalCopy.appendChild(emailNote);
-      }
-      emailNote.replaceChildren(document.createTextNode('Можно также написать на '));
-      const emailLink = document.createElement('a');
-      emailLink.href = 'mailto:' + contacts.email;
-      emailLink.textContent = contacts.email;
-      emailNote.appendChild(emailLink);
-    }
-
     const audienceParagraphs = document.querySelectorAll('#audience .practical-grid > div:nth-child(2) p');
     if (audienceParagraphs[0] && practice.audience_text) audienceParagraphs[0].textContent = practice.audience_text;
     if (audienceParagraphs[1] && practice.not_work_with) audienceParagraphs[1].textContent = practice.not_work_with;
