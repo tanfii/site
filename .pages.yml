@@ -180,9 +180,6 @@ content:
           - name: city
             label: Город очной работы
             type: string
-          - name: offline_place
-            label: Район / метро
-            type: string
       - name: services
         label: Услуги и цены
         type: object
