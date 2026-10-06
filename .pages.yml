@@ -321,7 +321,7 @@ content:
 
   - name: telegram_posts
     label: Telegram — топ постов
-    description: Статистика обновляется автоматически. Для каждого поста можно оставить автоотбор, всегда включить или всегда исключить его, а также поправить заголовок и рубрику для сайта.
+    description: Статистика обновляется автоматически. Автоотбор оставляет содержательные материалы о психологии, теле и исследованиях. Для каждого поста можно переопределить показ, заголовок и рубрику.
     type: file
     path: data/telegram-posts.json
     format: json
@@ -346,12 +346,22 @@ content:
         label: Сейчас показывается
         type: boolean
         readonly: true
+      - name: custom_title
+        label: Свой заголовок для сайта
+        description: Оставьте пустым, чтобы использовать автоматически взятый заголовок поста.
+        type: string
+      - name: custom_topic
+        label: Своя рубрика
+        description: Оставьте пустым, чтобы использовать автоматически определённую рубрику.
+        type: string
       - name: title
-        label: Заголовок для сайта
+        label: Автоматический заголовок
         type: string
+        readonly: true
       - name: topic
-        label: Рубрика
+        label: Автоматическая рубрика
         type: string
+        readonly: true
       - name: id
         label: ID поста
         type: number
