@@ -245,20 +245,7 @@
       ].filter(Boolean);
       const pattern = tokens.length
         ? new RegExp('(' + tokens.map(function (token) {
-            return token.label.replace(/[.*+?^$\{\}()|[\]\\]/g, '\\    const organization = data.organization || {};
-    const orgMap = {
-      'Запись': organization.booking,
-      'Перенос и отмена': organization.cancellation,
-      'Оплата': organization.payment,
-      'Если встречу переношу я': organization.therapist_cancellation,
-      'Связь и данные': organization.data,
-      'О консультации': organization.consultation
-    };
-    Object.keys(orgMap).forEach(function (title) {
-      const card = findCard('#org .org-item', title);
-      const p = card && card.querySelector('p');
-      if (p && orgMap[title]) p.textContent = orgMap[title];
-    });');
+            return token.label.replace(/[.*+?^$\{\}()|[\]\\]/g, '\\$&');
           }).join('|') + ')', 'g')
         : null;
 
