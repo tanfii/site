@@ -7,11 +7,70 @@
     return new Intl.NumberFormat('ru-RU').format(number) + ' ' + (currency || '₽');
   }
 
-  function effectivePrice(service, promo) {
-    if (promo && promo.enabled && Number(promo.consultation_price) > 0) {
-      return Number(promo.consultation_price);
+  function isPromoActive(promo) {
+    if (!promo || promo.enabled !== true || Number(promo.consultation_price) <= 0) return false;
+    if (!promo.valid_until) return true;
+
+    const end = new Date(promo.valid_until + 'T23:59:59');
+    return !Number.isNaN(end.getTime()) && end >= new Date();
+  }
+
+  function renderPromoCard(promo, basePrice, currency, bookingUrl) {
+    const host = document.querySelector('#format .format-list');
+    if (!host) return;
+
+    const existing = document.querySelector('.cms-promo-card');
+    if (existing) existing.remove();
+    if (!isPromoActive(promo)) return;
+
+    const card = document.createElement('aside');
+    card.className = 'cms-promo-card';
+    card.setAttribute('aria-label', 'Временное предложение');
+
+    const kicker = document.createElement('div');
+    kicker.className = 'cms-promo-kicker';
+    kicker.textContent = 'Временное предложение';
+
+    const title = document.createElement('h3');
+    title.textContent = promo.label || 'Специальная стоимость консультации';
+
+    const priceLine = document.createElement('p');
+    priceLine.className = 'cms-promo-price';
+    priceLine.appendChild(document.createTextNode('Стоимость консультации по этому запросу — '));
+
+    const current = document.createElement('strong');
+    current.textContent = formatMoney(promo.consultation_price, currency);
+    priceLine.appendChild(current);
+
+    if (Number(basePrice) > Number(promo.consultation_price)) {
+      priceLine.appendChild(document.createTextNode(' вместо '));
+      const old = document.createElement('s');
+      old.textContent = formatMoney(basePrice, currency);
+      priceLine.appendChild(old);
     }
-    return Number(service && service.price);
+
+    if (promo.valid_until) {
+      const until = document.createElement('p');
+      until.className = 'cms-promo-until';
+      until.textContent = 'До ' + new Intl.DateTimeFormat('ru-RU', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }).format(new Date(promo.valid_until + 'T00:00:00'));
+      card.append(kicker, title, priceLine, until);
+    } else {
+      card.append(kicker, title, priceLine);
+    }
+
+    if (bookingUrl) {
+      const link = document.createElement('a');
+      link.className = 'btn ghost cms-promo-cta';
+      link.href = bookingUrl;
+      link.textContent = 'Записаться по акции';
+      card.appendChild(link);
+    }
+
+    host.insertAdjacentElement('beforebegin', card);
   }
 
   function setAllLinks(oldHref, newHref) {
@@ -61,8 +120,8 @@
     const online = services.consultation_online || {};
     const offline = services.consultation_offline || {};
     const supervision = services.supervision || {};
-    const onlinePrice = effectivePrice(online, promo);
-    const offlinePrice = effectivePrice(offline, promo);
+    const onlinePrice = Number(online.price);
+    const offlinePrice = Number(offline.price);
 
     const heroFacts = document.querySelectorAll('.hero-facts span');
     if (heroFacts[0]) {
@@ -144,19 +203,12 @@
     if (portrait && photo.portrait) portrait.src = photo.portrait;
     if (portrait && photo.portrait_alt) portrait.alt = photo.portrait_alt;
 
-    const existingPromo = document.querySelector('.cms-promo-note');
-    if (existingPromo) existingPromo.remove();
-    if (promo.enabled) {
-      const formatIntro = document.querySelector('#format .section-note');
-      if (formatIntro) {
-        const note = document.createElement('p');
-        note.className = 'section-note cms-promo-note';
-        const bits = [promo.label];
-        if (promo.valid_until) bits.push('до ' + new Intl.DateTimeFormat('ru-RU').format(new Date(promo.valid_until + 'T00:00:00')));
-        note.textContent = bits.filter(Boolean).join(' · ');
-        formatIntro.insertAdjacentElement('afterend', note);
-      }
-    }
+    renderPromoCard(
+      promo,
+      online.price,
+      online.currency,
+      contacts.booking_telegram
+    );
   }
 
   async function boot() {
