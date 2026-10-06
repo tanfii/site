@@ -226,7 +226,7 @@ function renderEducationSection(collections) {
           </article>
           <article class="education-item">
             <h4>Клиническая эмоционально-образная терапия в работе с невротическими адаптациями</h4>
-            <p>Отдельный курс, 2019.</p>
+            <p>Авторский курс Людмилы Ковалёвой, 2019.</p>
           </article>
           <article class="education-item">
             <h4>Работа с внутренним ребёнком и внутренним родителем методами ЭОТ</h4>
