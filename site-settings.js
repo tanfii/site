@@ -212,7 +212,6 @@
 
     const organization = data.organization || {};
     const orgMap = {
-      'Запись': organization.booking,
       'Перенос и отмена': organization.cancellation,
       'Оплата': organization.payment,
       'Если встречу переношу я': organization.therapist_cancellation,
@@ -224,6 +223,45 @@
       const p = card && card.querySelector('p');
       if (p && orgMap[title]) p.textContent = orgMap[title];
     });
+
+    const bookingCard = findCard('#org .org-item', 'Запись');
+    const bookingParagraph = bookingCard && bookingCard.querySelector('p');
+    if (bookingParagraph && organization.booking) {
+      let bookingText = organization.booking;
+      if (contacts.email && !bookingText.includes(contacts.email)) {
+        const marker = 'Telegram';
+        const markerIndex = bookingText.indexOf(marker);
+        if (markerIndex >= 0) {
+          const insertAt = markerIndex + marker.length;
+          bookingText = bookingText.slice(0, insertAt) + ' или на почту ' + contacts.email + bookingText.slice(insertAt);
+        } else {
+          bookingText += ' Для записи можно также написать на ' + contacts.email + '.';
+        }
+      }
+
+      const tokens = [
+        contacts.booking_telegram && { label: 'Telegram', href: contacts.booking_telegram },
+        contacts.email && { label: contacts.email, href: 'mailto:' + contacts.email }
+      ].filter(Boolean);
+      const pattern = tokens.length
+        ? new RegExp('(' + tokens.map(function (token) {
+            return token.label.replace(/[.*+?^$\{\}()|[\]\\]/g, '\\$&');
+          }).join('|') + ')', 'g')
+        : null;
+
+      bookingParagraph.replaceChildren();
+      (pattern ? bookingText.split(pattern) : [bookingText]).forEach(function (part) {
+        const token = tokens.find(function (item) { return item.label === part; });
+        if (!token) {
+          bookingParagraph.append(document.createTextNode(part));
+          return;
+        }
+        const link = document.createElement('a');
+        link.href = token.href;
+        link.textContent = token.label;
+        bookingParagraph.appendChild(link);
+      });
+    }
     const orgNote = document.querySelector('#org .org-notes p');
     if (orgNote && organization.note) orgNote.textContent = organization.note;
 

@@ -168,18 +168,6 @@ function buildEducationDialog() {
 }
 
 function enhanceContactOptions() {
-  const bookingCard = Array.from(document.querySelectorAll('.org-item')).find((item) => {
-    const heading = item.querySelector('h3');
-    return heading && heading.textContent.trim() === 'Запись';
-  });
-
-  if (bookingCard) {
-    const paragraph = bookingCard.querySelector('p');
-    if (paragraph) {
-      paragraph.innerHTML = 'Основной способ записи - <a href="https://t.me/VeronikaSukhareva">Telegram</a>. Если удобнее, можно написать на <a href="mailto:v.sukhareva@gmail.com">v.sukhareva@gmail.com</a>. Я предложу варианты времени, и после подтверждения время закрепляется за вами. Для онлайн-встречи нужен стабильный интернет, камера и возможность спокойно разговаривать.';
-    }
-  }
-
   const finalGrid = document.querySelector('.final .final-grid');
   const telegramButton = finalGrid && finalGrid.querySelector('a.btn.primary');
   if (finalGrid && telegramButton && !finalGrid.querySelector('.final-actions')) {
