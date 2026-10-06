@@ -1,7 +1,6 @@
 (function () {
   const POSTS_URL = 'https://raw.githubusercontent.com/tanfii/site/main/data/telegram-posts.json';
-  const SESSION_KEY = 'site-telegram-featured-v1';
-  const LAST_KEY = 'site-telegram-featured-last-v1';
+  const LAST_KEY = 'site-telegram-featured-last-v2';
 
   function uniqueById(items) {
     const seen = new Set();
@@ -45,20 +44,22 @@
   }
 
   function choosePosts(top) {
-    const byId = new Map(top.map(function (post) { return [String(post.id || post.post_id), post]; }));
-    const sessionIds = readIds(sessionStorage, SESSION_KEY);
-    const sessionPosts = sessionIds.map(function (id) { return byId.get(id); }).filter(Boolean);
-    if (sessionPosts.length === Math.min(3, top.length)) return sessionPosts;
-
     const lastIds = new Set(readIds(localStorage, LAST_KEY));
-    let pool = top.filter(function (post) { return !lastIds.has(String(post.id || post.post_id)); });
-    if (pool.length < 3) pool = top.slice();
+    let pool = top.filter(function (post) {
+      return !lastIds.has(String(post.id || post.post_id));
+    });
+
+    if (pool.length < Math.min(3, top.length)) pool = top.slice();
+
     const selected = weightedPick(pool, Math.min(3, pool.length));
-    const ids = selected.map(function (post) { return String(post.id || post.post_id); });
+    const ids = selected.map(function (post) {
+      return String(post.id || post.post_id);
+    });
+
     try {
-      sessionStorage.setItem(SESSION_KEY, JSON.stringify(ids));
       localStorage.setItem(LAST_KEY, JSON.stringify(ids));
     } catch (_) {}
+
     return selected;
   }
 
@@ -74,9 +75,9 @@
       link.rel = 'noopener noreferrer';
 
       const topic = document.createElement('span');
-      topic.textContent = post.topic || 'Telegram';
+      topic.textContent = post.custom_topic || post.topic || 'Telegram';
       const title = document.createElement('strong');
-      title.textContent = post.title || post.text_preview || 'Открыть пост';
+      title.textContent = post.custom_title || post.title || post.text_preview || 'Открыть пост';
       link.append(topic, title);
       list.appendChild(link);
     });
@@ -89,7 +90,7 @@
       const data = await response.json();
       if (!Array.isArray(data)) throw new Error('Неверный формат telegram-posts.json');
       const top = uniqueById(data)
-        .filter(function (post) { return post.show !== false && post.url && (post.title || post.text_preview); })
+        .filter(function (post) { return post.show === true && post.url && (post.custom_title || post.title || post.text_preview); })
         .sort(function (a, b) { return Number(b.score || 0) - Number(a.score || 0); })
         .slice(0, 20);
       render(choosePosts(top));
