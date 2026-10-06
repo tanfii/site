@@ -53,10 +53,13 @@
     "portrait": "/images/veronika-sukhareva.webp",
     "portrait_alt": "Вероника Сухарева"
   },
-  "promo": {
-    "enabled": true,
-    "label": "Акция. Вопросы по сну и его качеству",
-    "consultation_price": 4500,
-    "valid_until": "2026-11-03"
-  }
+  "promotions": [
+    {
+      "enabled": true,
+      "label": "Вопросы по сну и его качеству",
+      "consultation_price": 4500,
+      "start_date": "2026-10-06",
+      "end_date": "2026-11-03"
+    }
+  ]
 }
