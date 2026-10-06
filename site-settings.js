@@ -30,41 +30,46 @@
     card.className = 'cms-promo-card';
     card.setAttribute('aria-label', 'Временное предложение');
 
-    const kicker = document.createElement('div');
+    const kicker = document.createElement('p');
     kicker.className = 'cms-promo-kicker';
-    kicker.textContent = 'Сейчас отдельно беру';
+    kicker.textContent = 'Сейчас отдельно';
+
+    const main = document.createElement('div');
+    main.className = 'cms-promo-main';
+
+    const copy = document.createElement('div');
+    copy.className = 'cms-promo-copy';
 
     const title = document.createElement('h3');
     title.textContent = (promo.label || 'Специальная стоимость консультации')
       .replace(/^Акция[.:]?\s*/i, '');
 
-    const priceLine = document.createElement('p');
-    priceLine.className = 'cms-promo-price';
-    priceLine.appendChild(document.createTextNode('Консультация по этому запросу — '));
+    const meta = document.createElement('p');
+    meta.className = 'cms-promo-meta';
 
-    const current = document.createElement('strong');
-    current.textContent = formatMoney(promo.consultation_price, currency);
-    priceLine.appendChild(current);
-
-    if (Number(basePrice) > Number(promo.consultation_price)) {
-      priceLine.appendChild(document.createTextNode(' вместо '));
-      const oldPrice = document.createElement('s');
-      oldPrice.textContent = formatMoney(basePrice, currency);
-      priceLine.appendChild(oldPrice);
-    }
-
-    card.append(kicker, title, priceLine);
-
+    const metaParts = [];
     if (promo.valid_until) {
-      const until = document.createElement('p');
-      until.className = 'cms-promo-until';
-      until.textContent = 'До ' + new Intl.DateTimeFormat('ru-RU', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-      }).format(new Date(promo.valid_until + 'T00:00:00'));
-      card.appendChild(until);
+      const promoDate = new Date(promo.valid_until + 'T00:00:00');
+      const now = new Date();
+      const dateOptions = promoDate.getFullYear() === now.getFullYear()
+        ? { day: 'numeric', month: 'long' }
+        : { day: 'numeric', month: 'long', year: 'numeric' };
+      metaParts.push('до ' + new Intl.DateTimeFormat('ru-RU', dateOptions).format(promoDate));
     }
+    if (Number(basePrice) > Number(promo.consultation_price)) {
+      metaParts.push('обычная стоимость ' + formatMoney(basePrice, currency));
+    }
+    meta.textContent = metaParts.join(' · ');
+
+    copy.append(title);
+    if (meta.textContent) copy.appendChild(meta);
+
+    const price = document.createElement('strong');
+    price.className = 'cms-promo-price';
+    price.textContent = formatMoney(promo.consultation_price, currency);
+
+    main.append(copy, price);
+    card.append(kicker, main);
 
     if (bookingUrl) {
       const link = document.createElement('a');
@@ -74,12 +79,7 @@
       card.appendChild(link);
     }
 
-    const standardLabel = document.createElement('p');
-    standardLabel.className = 'cms-standard-label';
-    standardLabel.textContent = 'Стандартный формат';
-
-    host.insertAdjacentElement('beforebegin', standardLabel);
-    standardLabel.insertAdjacentElement('beforebegin', card);
+    host.insertAdjacentElement('beforebegin', card);
   }
 
   function setAllLinks(oldHref, newHref) {
