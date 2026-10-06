@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Психосоматика - Вероника Сухарева</title>
+<meta name="description" content="Психосоматика без универсальных расшифровок: как исследовать телесный симптом, учитывать физиологию и психологический компонент. Статьи и практики Вероники Сухаревой.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#f4f0e8">
+<link rel="canonical" href="https://veronikadumaet.ru/psychosomatika/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Вероника Сухарева - психолог">
+<meta property="og:url" content="https://veronikadumaet.ru/psychosomatika/">
+<meta property="og:title" content="Психосоматика - Вероника Сухарева">
+<meta property="og:description" content="Как исследовать телесный симптом без универсальных расшифровок: статьи и практики Вероники Сухаревой.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --bg:#f4f0e8;
+  --paper:#fcfaf5;
+  --ink:#22231f;
+  --muted:#69635c;
+  --forest:#18362f;
+  --wine:#7a2948;
+  --wine-dark:#641d39;
+  --line:#d8d0c5;
+  --serif:Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--serif);font-size:17px;line-height:1.68;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility
+}
+a{color:inherit}
+.wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+section[id]{scroll-margin-top:82px}
+
+/* Header matches the main site: quiet, thin, functional. */
+.header{
+  position:sticky;top:0;z-index:30;
+  background:rgba(244,240,232,.96);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(10px)
+}
+.headerin{min-height:68px;display:flex;align-items:center;gap:28px}
+.brand{font-size:20px;font-weight:700;text-decoration:none;margin-right:auto;white-space:nowrap}
+.nav{display:flex;align-items:center;gap:18px;font-size:14.5px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;padding:0 2px}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.nav .cta{padding:0 14px;background:var(--wine);color:#fff;border-radius:4px;text-decoration:none}
+.nav .cta:hover{background:var(--wine-dark)}
+.nav .current{color:var(--wine);border-bottom:1px solid var(--wine);min-height:44px;display:inline-flex;align-items:center}
+.footer-links{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}.footer-links a{text-decoration:none}.footer-links a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* Type scale intentionally calmer than previous prototypes. */
+h1,h2,h3{margin:0;font-weight:400}
+h1{font-size:clamp(48px,5.2vw,64px);line-height:1.04;letter-spacing:-.012em;max-width:850px}
+h2{font-size:clamp(34px,3.4vw,46px);line-height:1.12;letter-spacing:-.006em;max-width:820px}
+h3{font-size:22px;line-height:1.28}
+.eyebrow{margin:0 0 12px;color:var(--wine);font-size:15px}
+.lead{font-size:clamp(20px,2vw,24px);line-height:1.5;max-width:800px;margin:28px 0 0}
+.copy{font-size:18px;line-height:1.65;max-width:760px;margin:20px 0 0;color:#3f3f39}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+  padding:12px 18px;border:1px solid #a89f94;border-radius:4px;
+  text-decoration:none;font-size:15.5px;line-height:1.2;font-weight:400
+}
+.btn.primary{background:var(--wine);color:#fff;border-color:var(--wine)}
+.btn.primary:hover{background:var(--wine-dark)}
+.btn.ghost:hover{border-color:var(--ink)}
+
+/* Hero: compact. Position is here, not repeated in a second screen. */
+.hero{padding:58px 0 52px;border-bottom:1px solid var(--line)}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);
+  gap:70px;align-items:start
+}
+.hero-aside{border-top:1px solid var(--line);margin-top:2px}
+.hero-aside .item{padding:17px 0;border-bottom:1px solid var(--line)}
+.hero-aside strong{display:block;font-size:18px;font-weight:400}
+.hero-aside span{display:block;color:var(--muted);font-size:14.5px;line-height:1.55;margin-top:4px}
+
+/* Site sections */
+.section{padding:72px 0;border-bottom:1px solid var(--line)}
+.section.paper{background:var(--paper)}
+.section-head{margin-bottom:32px}
+.section-head>p:not(.eyebrow){max-width:720px;color:var(--muted);margin:14px 0 0}
+.section-note{font-size:17px;color:var(--muted);max-width:720px;margin:18px 0 0}
+
+/* Practical questions: deliberately unlike the hero. */
+.practical-grid{
+  display:grid;grid-template-columns:minmax(250px,.62fr) minmax(0,1.38fr);
+  gap:72px;align-items:start
+}
+.question-list{border-top:1px solid var(--line)}
+.question-row{
+  display:grid;grid-template-columns:38px minmax(210px,.72fr) minmax(0,1.28fr);
+  gap:22px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start
+}
+.question-row .n{color:var(--muted);font-size:14px}
+.question-row h3{font-size:19px}
+.question-row p{margin:0;color:var(--muted);font-size:15.5px}
+
+/* Exercises reuse the site's step rhythm. */
+.steps{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line)
+}
+.step{
+  display:block;text-decoration:none;
+  padding:21px 22px 23px 0;border-right:1px solid var(--line)
+}
+.step:not(:first-child){padding-left:22px}
+.step:last-child{border-right:0}
+.step .n{font-size:13.5px;color:var(--muted)}
+.step h3{font-size:19px;margin:13px 0 8px}
+.step p{font-size:15px;color:var(--muted);margin:0}
+.step:hover h3{text-decoration:underline;text-underline-offset:4px}
+.steps.two{grid-template-columns:repeat(2,1fr)}
+
+/* Articles reuse the site's read-list pattern, with one extra description line. */
+.read-list{border-top:1px solid var(--line)}
+.read-item{
+  display:grid;grid-template-columns:145px minmax(0,1fr);
+  gap:28px;padding:18px 0;border-bottom:1px solid var(--line);
+  text-decoration:none;align-items:start
+}
+.read-item .tag{font-size:13.5px;color:var(--wine);padding-top:3px}
+.read-item strong{display:block;font-size:19px;line-height:1.35;font-weight:400}
+.read-item p{margin:5px 0 0;color:var(--muted);font-size:15.5px;max-width:730px}
+.read-item:hover strong{text-decoration:underline;text-underline-offset:4px}
+
+/* Dark block is the one strong visual accent, as on the main site. */
+.work{background:var(--forest);color:#f4f0e8;border-bottom:0}
+.work h2,.work h3{color:#f4f0e8}
+.work .eyebrow{color:#c7c0b7}
+.work .section-head>p{color:#ddd6cd}
+.work-list{border-top:1px solid rgba(255,255,255,.18)}
+.work-row{
+  display:grid;grid-template-columns:minmax(230px,.72fr) minmax(0,1.28fr);
+  gap:44px;padding:23px 0;border-bottom:1px solid rgba(255,255,255,.14)
+}
+.work-row h3{font-size:22px}
+.work-row p{margin:0;color:#ddd7cf;font-size:16.5px;max-width:700px}
+.principle{
+  margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);
+  max-width:880px
+}
+.principle p{font-size:clamp(27px,2.7vw,36px);line-height:1.25;margin:0;color:#fff}
+
+/* CTA */
+.final{padding:58px 0;background:var(--paper);border-top:1px solid var(--line)}
+.final-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:54px;align-items:center}
+.final p{font-size:17px;color:var(--muted);max-width:650px;margin:14px 0 0}
+
+.section-cta{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.section-cta p{margin:0;max-width:690px;color:var(--muted);font-size:15.8px}
+.section-cta .btn{flex:0 0 auto}
+.work .section-cta{border-top-color:rgba(255,255,255,.18)}
+.work .section-cta p{color:#ddd7cf}
+.article-cta{display:flex;justify-content:flex-start;align-items:center;margin-top:36px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.article-cta p{margin:0;color:var(--muted);font-size:15.8px}
+
+/* Article / exercise pages */
+.article-head{padding:56px 0 40px;border-bottom:1px solid var(--line)}
+.article-head .wrap{max-width:900px}
+.article-head h1{max-width:840px}
+.article-head .dek{font-size:18px;line-height:1.62;color:var(--muted);max-width:720px;margin:17px 0 0}
+.article-section{padding:56px 0 72px}
+.article-copy{max-width:740px}
+.article-copy p{margin:0 0 18px}
+.article-copy h2{font-size:30px;margin:40px 0 14px}
+.article-copy ul,.article-copy ol{margin:0 0 22px;padding-left:24px}
+.article-copy li{margin:7px 0}
+.article-copy .quote{
+  margin:28px 0;padding:20px 0;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);font-size:23px;line-height:1.42
+}
+.article-copy .steps{
+  display:block;list-style:none;padding:0;margin:25px 0;
+  border-top:1px solid var(--line);counter-reset:item
+}
+.article-copy .steps li{
+  counter-increment:item;display:grid;grid-template-columns:38px 1fr;
+  gap:14px;padding:14px 0;border-bottom:1px solid var(--line)
+}
+.article-copy .steps li::before{content:counter(item,decimal-leading-zero);color:var(--muted);font-size:13.5px}
+.backline{margin-top:38px;padding-top:20px;border-top:1px solid var(--line)}
+.backline a{text-decoration:none}
+.backline a:hover{text-decoration:underline;text-underline-offset:4px}
+.sources{
+  margin-top:38px;padding-top:18px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:14px
+}
+.sources a{display:block;margin-top:6px}
+
+/* Footer */
+footer{padding:25px 0 34px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:24px}
+
+@media(max-width:920px){
+  .hero-grid,.practical-grid,.final-grid{grid-template-columns:1fr;gap:34px}
+  .section-cta{grid-template-columns:1fr;display:grid;justify-items:start}
+  .hero-aside{max-width:650px}
+  .steps{grid-template-columns:1fr}
+  .step,.step:not(:first-child){padding:18px 0;border-right:0;border-bottom:1px solid var(--line)}
+}
+@media(max-width:760px){
+  .wrap{width:min(100% - 32px,1120px)}
+  body{font-size:16.5px;line-height:1.68}
+  .headerin{min-height:60px;gap:12px}.brand{font-size:18px}
+  .nav a:not(.cta),.nav .current{display:none}
+  .hero{padding:44px 0 42px}
+  h1{font-size:clamp(38px,11vw,48px);line-height:1.08;letter-spacing:-.006em}
+  h2{font-size:32px;line-height:1.16}
+  h3{font-size:20px}
+  .lead{font-size:19px;line-height:1.52}
+  .section{padding:54px 0}
+  .question-row{grid-template-columns:34px 1fr;gap:8px 14px}
+  .question-row p{grid-column:2}
+  .read-item{grid-template-columns:1fr;gap:3px}
+  .read-item .tag{font-size:12.5px}
+  .work-row{grid-template-columns:1fr;gap:7px;padding:19px 0}
+  .article-head{padding:44px 0 34px}
+  .article-section{padding:44px 0 58px}
+  .article-copy h2{font-size:27px}
+  .foot{display:block}.foot>span{display:block;margin-bottom:7px}.footer-links{justify-content:flex-start;gap:12px}
+}
+@media(max-width:420px){
+  .wrap{width:min(100% - 26px,1120px)}
+  .btns{display:grid;grid-template-columns:1fr}
+  .btn{width:100%}
+  .brand{font-size:17px}
+  h1{font-size:36px}
+  h2{font-size:29px}
+}
+</style>
+<style>
+.preview-back{display:none}
+body.page-open .preview-back{display:inline-flex}
+body.page-open .hub-nav{display:none}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="wrap headerin">
+<a class="brand" href="https://veronikadumaet.ru/" id="brand">Вероника Сухарева</a>
+<nav class="nav" aria-label="Навигация по сайту">
+<span class="hub-nav" style="display:contents"><a href="https://veronikadumaet.ru/">Главная</a><span class="current" aria-current="page">Психосоматика</span><a href="https://t.me/sukhareva_psy">Блог</a></span>
+<a class="preview-back btn ghost" href="#" id="back">К материалам</a>
+<a class="cta" href="https://t.me/VeronikaSukhareva">Записаться</a>
+</nav>
+</div>
+</header>
+<div id="app"><main id="top">
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<p class="eyebrow">Психосоматика</p>
+<h1>Психосоматика: когда симптом - не только про тело и не только «от нервов»</h1>
+<p class="lead">Телесный симптом может одновременно иметь физиологические и психологические составляющие. Связь со стрессом, чувствами или отношениями тоже ещё не означает, что причина уже найдена.</p>
+<p class="copy">Я не ищу универсальную расшифровку симптомов. Мне интереснее исследовать, что происходит именно с вами: когда появилась реакция, что её усиливает или ослабляет, какие чувства и ситуации идут рядом и что уже известно о здоровье. На этой странице собраны статьи и практики, которыми можно пользоваться в любом порядке.</p>
+<div class="btns"><a class="btn primary" data-page="articles/issledovat-simptom.html" href="#">С чего начать с симптомом</a><a class="btn ghost" href="#articles">Все статьи</a><a class="btn ghost" href="#exercises">Практики</a></div>
+</div>
+<aside class="hero-aside">
+<div class="item"><strong>Одинаковый симптом - разные истории</strong><span>Одинаковое медицинское название ничего не говорит о том, как симптом живёт в жизни конкретного человека.</span></div>
+<div class="item"><strong>Медицинская и психологическая части могут идти параллельно</strong><span>Диагноз не закрывает психологическую работу, а психологическая связь не отменяет физиологию.</span></div>
+<div class="item"><strong>Гипотеза остаётся гипотезой</strong><span>Если моя гипотеза не сходится с вашей историей, меняем гипотезу, а не вашу историю.</span></div>
+</aside>
+</div>
+</section><section class="section paper" id="articles">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Статьи</p>
+<h2>Статьи и разборы</h2>
+<p>Это не последовательный курс. Каждый текст самостоятельный: можно начать с общего подхода, конкретного симптома, соматопсихики, мигрени, напряжения или разговора о «вторичной выгоде».</p>
+</div>
+<div class="read-list">
+<a class="read-item" data-page="articles/bez-odnoznachnyh-traktovok.html" href="#"><span class="tag">Подход</span><div><strong>Почему я не люблю однозначные трактовки</strong><p>Почему готовая таблица «симптом = конфликт» мне не подходит и почему гипотеза должна оставаться гипотезой.</p></div></a>
+<a class="read-item" data-page="articles/issledovat-simptom.html" href="#"><span class="tag">Симптом</span><div><strong>Как исследовать симптом, а не его название</strong><p>Сначала понять, что именно происходит и что человек хочет изменить. Психологические гипотезы появляются уже после этого.</p></div></a>
+<a class="read-item" data-page="articles/somatopsihika.html" href="#"><span class="tag">Тело → психика</span><div><strong>Когда уже тело влияет на психику</strong><p>Напоминание о направлении, которое легко пропустить: иногда сначала меняется тело, а вслед за ним - состояние.</p></div></a>
+<a class="read-item" data-page="articles/vtorichnaya-vygoda.html" href="#"><span class="tag">Язык</span><div><strong>Почему я не люблю «вторичную выгоду»</strong><p>Про термин, который легко превращает исследование потребностей в обвинение.</p></div></a>
+<a class="read-item" data-page="articles/migren-i-golovnaya-bol.html" href="#"><span class="tag">Мигрень</span><div><strong>Мигрень и головная боль: куда копаем?</strong><p>Развести головную боль, мигрень, триггеры и то, что приступ фактически меняет в жизни человека.</p></div></a>
+<a class="read-item" data-page="articles/plechi-sheya-napryazhenie.html" href="#"><span class="tag">Напряжение</span><div><strong>Плечи, шея и хроническое напряжение</strong><p>Как могут складываться нагрузка, привычная поза, стресс и собственные ассоциации человека - без готовой расшифровки зажима.</p></div></a>
+</div>
+
+</div>
+</section><section class="section" id="exercises">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Попробовать самому</p>
+<h2>Практики, которые можно попробовать самостоятельно</h2>
+<p>Они не объясняют причину симптома. Их задача скромнее: помочь заметить собственные ассоциации, динамику напряжения или попробовать один из способов саморегуляции.</p>
+</div>
+<div class="steps">
+<a class="step" data-page="exercises/dialog-s-simptomom.html" href="#">
+<span class="n">Образное исследование</span>
+<h3>Как самостоятельно исследовать симптом</h3>
+<p>Представить симптом и задать ему несколько вопросов.</p>
+</a>
+<a class="step" data-page="exercises/napryazhenie-i-golovnaya-bol.html" href="#">
+<span class="n">Наблюдение за напряжением</span>
+<h3>Посмотреть на уровень напряжения</h3>
+<p>Оценить напряжение и посмотреть, что меняется, когда его становится меньше.</p>
+</a>
+<a class="step" data-page="exercises/smotret-na-chernoe.html" href="#">
+<span class="n">Саморегуляция</span>
+<h3>Смотреть на чёрное</h3>
+<p>Представить образ боли или симптома, найти в нём самое чёрное и следить за тем, как образ меняется.</p>
+</a>
+</div>
+</div>
+</section><section class="section work" id="work"><div class="wrap"><div class="section-head"><p class="eyebrow">Если узнали в этом свою историю</p><h2>На консультации разбираем не «что означает симптом вообще», а что происходит именно с вами</h2><p>Можно прийти с диагнозом, симптомом или повторяющейся телесной реакцией. Смотрим, когда это началось, что поддерживает реакцию сейчас, какие чувства и внутренние конфликты с ней связаны и какие физиологические факторы тоже стоит учитывать.</p></div><div class="principle"><p>Теории и методы нужны мне, чтобы строить гипотезы. Но в работе для меня важнее живой человек - его история, внутренний опыт и то, что действительно меняется.</p></div><div class="btns"><a class="btn primary" href="https://t.me/VeronikaSukhareva">Записаться</a><a class="btn ghost" href="https://veronikadumaet.ru/#work">Как я работаю</a></div></div></section>
+
+
+
+
+
+</main></div>
+<footer><div class="wrap foot"><span>© Вероника Сухарева</span><span class="footer-links"><a href="https://veronikadumaet.ru/">главная</a><a href="https://veronikadumaet.ru/#org">условия работы</a><a href="https://veronikadumaet.ru/offer.html">оферта</a><a href="https://t.me/sukhareva_psy">Telegram-канал</a><a href="https://t.me/VeronikaSukhareva">запись</a></span></div></footer>
+
+<script>
+const pages = {"articles/bez-odnoznachnyh-traktovok.html":{"title":"Почему я не люблю однозначные трактовки","html":"<main id=\"top\">\n<section class=\"article-head\">\n<div class=\"wrap\">\n<p class=\"eyebrow\">Психосоматика</p>\n<h1>Почему я не люблю однозначные трактовки</h1>\n</div>\n</section>\n<section class=\"article-section\">\n<div class=\"wrap article-copy\">\n<p>Почему я не люблю однозначные трактовки?</p>\n<p>Мы сложные, нас не свести к прямой логике одного варианта.</p>\n<p>Даже если в работе с гинекологическим симптомом всплывает тема женского, это ещё не ответ. Какая именно тема?</p>\n<ul>\n<li>Я не хочу быть женщиной?</li>\n<li>Я не хочу быть такой женщиной, как моя мать?</li>\n<li>Я не хочу отказываться от свободы?</li>\n<li>Я не хочу обо всех заботиться?</li>\n<li>Я чувствую мужчин опасными?</li>\n<li>Мне плохо в моих текущих отношениях?</li>\n</ul>\n<p>А может быть, вообще не про женское. Про отношения с мамой. Про опыт больниц. Про то, как в детстве обходились с телесными потребностями. Или про что-то ещё, чего в готовой табличке не было.</p>\n<p>Поэтому трактовка для меня - гипотеза, не ответ.</p>\n<div class=\"quote\">Если моя гипотеза не сходится с вашей историей, меняем гипотезу, а не вашу историю.</div>\n<h2>Что я тогда исследую</h2>\n<p>Сначала смотрю, как человек ощущает симптом, когда он меняется, что уже известно о здоровье и чего хочется изменить. Сам симптом ничего сам по себе не «расшифровывает».</p>\n<p>Если вместе с симптомом действительно повторяется одна и та же психологическая реакция, можно смотреть туда. При отсутствии такой связи гипотезу просто не используем.</p>\n<p>Физиология остаётся частью картины.</p>\n<h2>И язык здесь важен</h2>\n<p>Если трактовка остаётся гипотезой, язык работы тоже не может заранее объявлять человека неправым.</p>\n<p>Как-то читала у врача и психотерапевта: «В работе над психосоматикой основная задача - определить и разоблачить эти установки».</p>\n<p>И у меня непроизвольно дёргается глаз.</p>\n<p>Потому что «разоблачить» у нас обычно про мошенничество и что-то нехорошее. Если мне надо что-то разоблачить, то я уже судья, который докапывается, выводит на чистую воду и ещё пальчиком тыкает: фу так делать.</p>\n<p>За убеждением или привычным способом реагировать может стоять потребность. Мне важнее понять, как это появилось, что сейчас поддерживает и что можно делать по-другому.</p>\n<p>В работе я исследую, проверяю и ищу новые способы вместе с человеком.</p>\n<p>А разоблачать и стыдить - увольте.</p>\n<div class=\"article-cta\"><a class=\"btn ghost\" href=\"https://t.me/VeronikaSukhareva\">Записаться на консультацию</a></div>\n<div class=\"backline\"><a data-home=\"#articles\" href=\"#\">← Вернуться в раздел</a></div>\n</div>\n</section>\n</main>"},"articles/issledovat-simptom.html":{"title":"Как исследовать симптом, а не его название","html":"<main id=\"top\">\n<section class=\"article-head\">\n<div class=\"wrap\">\n<p class=\"eyebrow\">Психосоматика</p>\n<h1>Как исследовать симптом, а не его название</h1>\n<p class=\"dek\">От названия и цифр - к тому, что действительно мешает человеку.</p>\n</div>\n</section>\n<section class=\"article-section\">\n<div class=\"wrap article-copy\">\n<p>Анализ сам по себе ещё не говорит, с чем человек пришёл ко мне как к психологу.</p>\n<p>Даже если цифра важная, всё равно надо понять, как она проявляется именно у этого человека и что ему мешает.</p>\n<p>Например, у меня регулярное давление 95-100/60. Если я приду к коллеге-психологу с запросом «давайте поработаем с моим низким давлением», он среди прочих вопросов спросит: а как вы его ощущаете?</p>\n<p>Именно низкое давление я ощущаю никак.</p>\n<p>Но я могу предполагать, например, что мои сложности с раскачкой на дела или повышенная усталость - они от этого. Расскажу про это. И потом мы перейдём уже к тому, как я проживаю эту усталость: «как будто...», «словно...».</p>\n<p>Тут я сделаю паузу.</p>\n<p>Запрос уже перешёл от невнятного бумажного диагноза с кодовым названием «низкое давление» к конкретному состоянию, которое мне мешает. Это уже живое.</p>\n<p>После этого уже проще понять, какой у человека запрос и что вообще имеет смысл исследовать дальше.</p><ul><li>Что именно происходит и как это ощущается?</li><li>Что уже известно о здоровье: диагнозы, обследования, лекарства?</li><li>Когда это началось и как состояние менялось с тех пор?</li><li>Когда становится лучше или хуже? Что обычно бывает перед этим?</li><li>Что ещё меняется в эти моменты: чувства, действия, желания?</li><li>Что меняется в жизни из-за симптома: что приходится отменять, откладывать или делать иначе?</li></ul><p>До психологических гипотез полезно собрать обычные наблюдения:</p><h2>Что полезно собрать сначала</h2><h2>Что хочется изменить?</h2>\n<ul>\n<li>Легче переносить состояние?</li>\n<li>Иметь больше сил?</li>\n<li>Проще делать то, что помогает поддерживать себя?</li>\n<li>Наконец дойти до врача?</li>\n<li>Или перестать жить вокруг цифры на приборе?</li>\n</ul>\n<p>Вопрос, какой у меня запрос изначально - красивые цифры или что?</p>\n<p>У разных людей под одним медицинским названием будут разные ощущения и разные запросы. Значит, и работа будет разной.</p>\n<h2>Что происходит вокруг симптома</h2>\n<p>Когда понятно, что именно хочется изменить, можно смотреть, что происходит вокруг симптома и какие реакции повторяются.</p>\n<p>Например: чего мне сейчас не хватает, чтобы я выровнялась в реакции?</p>\n<p>Вопрос именно про меня - про то, чего мне не хватает, а не про то, как должны измениться другие.</p>\n<p>Безопасности? Одобрения? Уверенности? Ещё чего-то?</p>\n<p>Первые приходящие в голову ответы иногда стоит успеть поймать, пока умный мозг не засунул их от нас подальше)</p>\n<h2>Первый ответ бывает не последним</h2>\n<p>В постах про симптомы часто получается верхний слой, «в лоб»: раздражение, гиперконтроль, гнев, невозможность остановиться.</p>\n<p>Если работа на этом не заканчивается, иногда за ним обнаруживается более старая история: одиночество, страх покинутости, нехватка любви, чужие чувства и свои запрессованные и спрятанные.</p>\n<p>Всегда ли мы попадаем в детство? Нет. Иногда достаточно того, что происходит сейчас или произошло условные три месяца назад.</p>\n<p>Глубже иду тогда, когда к этому приводит конкретная работа, а не потому, что «там наверняка что-то есть».</p>\n<p><a data-page=\"exercises/dialog-s-simptomom.html\" href=\"#\"><strong>Попробовать самостоятельно: исследование симптома через образ →</strong></a></p>\n<div class=\"article-cta\"><a class=\"btn ghost\" href=\"https://t.me/VeronikaSukhareva\">Записаться на консультацию</a></div>\n<div class=\"backline\"><a data-home=\"#articles\" href=\"#\">← Вернуться в раздел</a></div>\n</div>\n</section>\n</main>"},"articles/migren-i-golovnaya-bol.html":{"title":"Мигрень и головная боль: куда копаем?","html":"<main id=\"top\">\n<section class=\"article-head\">\n<div class=\"wrap\">\n<p class=\"eyebrow\">Психосоматика</p>\n<h1>Мигрень и головная боль: куда копаем?</h1>\n<p class=\"dek\">Здесь важно развести заболевание, триггеры и то, что приступ меняет в жизни.</p>\n</div>\n</section>\n<section class=\"article-section\">\n<div class=\"wrap article-copy\">\n<p>Сначала разведу две вещи: головная боль - симптом, мигрень - неврологическое заболевание. Головная боль бывает при мигрени, но мигрень к ней не сводится.</p>\n<h2>Если болит голова</h2>\n<p>Иногда голова болит от самых простых вещей:</p>\n<ul>\n<li>мало воды;</li>\n<li>мало или слишком много сна;</li>\n<li>пропущенная еда;</li>\n<li>много кофе или алкоголь;</li>\n<li>перегрев;</li>\n<li>долгая работа в одной позе и напряжённая шея;</li>\n<li>сенсорная перегрузка.</li>\n</ul>\n<p>Так что до психосоматики я бы сначала посмотрела сюда. Как минимум)</p>\n<h2>Если это мигрень</h2>\n<p>Мигрень - неврологическое заболевание. Сон, пропущенная еда, обезвоживание, стресс, гормональные изменения, свет и другие факторы у некоторых людей могут влиять на вероятность приступа. Триггер - не то же самое, что причина заболевания.</p>\n<h2>А что приступ делает с жизнью?</h2>\n<p>Отдельный вопрос - что фактически происходит с жизнью во время приступа. Иногда он становится тем самым «стопором и тормозом»: человек вынужден лечь, отменить дела и остановиться.</p>\n<p>Только разгонишься, потому что попала в колею «надо», «положено» и вообще хорошо дела идут. Только на отдых, восстановление и свои интересы начинаешь забивать, как приходит та самая стена, которая может остановить и разогнавшегося бизона.</p>\n<p>Вот она так нежно по голове «тюк»!</p>\n<p>И ты лежишь, потому что ничего особенно делать не можешь.</p>\n<p>И выдыхаешь принудительно.</p>\n<p>Если такой рисунок повторяется, его можно исследовать. Но это про то, что приступ делает с вашей жизнью, а не про причину мигрени.</p>\n<h2>Если всплывают старые истории</h2>\n<p>Иногда в разговоре о приступах действительно поднимаются давние истории - детские, родительские, родовые, прости господи.</p>\n<p>В моей практике я нередко встречала мигрень у женщин с длинной историей небезопасного детства, где надо было очень много себя подавить, чтобы выжить. Это наблюдение из моей практики, а не правило «мигрень = травма».</p>\n<p>Идти туда стоит, когда эта история сейчас живая. Мигрень сама по себе не указывает на детство или травму.</p>\n<p>Я за микс: не ходить в семейные истории дальше, чем это необходимо по ситуации. Сейчас я игрок на этом поле. Мне решать, что делать с наследством, что нести, а что оставить другим для решения.</p>\n<h2>Головная боль напряжения - отдельная история</h2>\n<p>В работе бывает так: обсуждаем одну тему, и тут начинает болеть голова. Можно переключиться на боль, а можно продолжить разговор и замечать, меняется ли она по ходу.</p>\n<p>Если меняется зона, интенсивность или характер боли, я могу это учитывать. Но это дополнительная информация, а не способ проверить, «доработали ли мы конфликт до конца».</p>\n<p><a data-page=\"articles/plechi-sheya-napryazhenie.html\" href=\"#\"><strong>Рядом: плечи, шея и хроническое напряжение →</strong></a></p>\n<p><a data-page=\"exercises/napryazhenie-i-golovnaya-bol.html\" href=\"#\"><strong>Попробовать: эксперимент с уровнем напряжения →</strong></a></p>\n<div class=\"sources\">\n<span>Медицинская часть:</span>\n<a href=\"https://americanmigrainefoundation.org/resource-library/what-type-of-headache-do-you-have/\">American Migraine Foundation - мигрень и другие виды головной боли</a>\n<a href=\"https://americanmigrainefoundation.org/resource-library/lifestyle-changes-for-migraine/\">American Migraine Foundation - образ жизни и триггеры</a>\n<a href=\"https://ichd-3.org/2-tension-type-headache/\">ICHD-3 - головная боль напряжения</a>\n</div>\n<div class=\"article-cta\"><a class=\"btn ghost\" href=\"https://t.me/VeronikaSukhareva\">Записаться на консультацию</a></div>\n<div class=\"backline\"><a data-home=\"#articles\" href=\"#\">← Вернуться в раздел</a></div>\n</div>\n</section>\n</main>"},"articles/plechi-sheya-napryazhenie.html":{"title":"Плечи, шея и хроническое напряжение","html":"<main id=\"top\">\n<section class=\"article-head\">\n<div class=\"wrap\">\n<p class=\"eyebrow\">Психосоматика</p>\n<h1>Плечи, шея и хроническое напряжение</h1>\n<p class=\"dek\">Здесь обычно складывается несколько факторов, поэтому полезнее смотреть на их сочетание.</p>\n</div>\n</section>\n<section class=\"article-section\">\n<div class=\"wrap article-copy\">\n<p>У хронического напряжения редко бывает одна причина. На него могут влиять нагрузка, привычная поза, движение, сон, боль. Стресс тоже может усиливать мышечное напряжение.</p>\n<p>Если меняется только один кусок системы, напряжение может вернуться. Например, после массажа стало легче, но рабочая поза, нагрузка и привычный способ держать плечи остались.</p>\n<p>Или наоборот: психологически стало спокойнее, а телесная привычка никуда не делась.</p>\n<p>В обоих случаях часть условий осталась. Поэтому мне важнее смотреть, что поддерживает напряжение сейчас, чем искать один главный источник.</p>\n<h2>А психологическая часть где?</h2>\n<p>Иногда человек сам узнаёт в своей позе знакомое состояние: «я всё тащу», «жду, что сейчас прилетит», «хочу сжаться и спрятаться».</p>\n<p>Если образ попадает - его можно исследовать. Если не попадает, не надо подгонять под него тело.</p>\n<h2>Можно дать зажиму микрофон</h2>\n<p>Можно спросить: «Что ты не выпускаешь?» Или: «Что ты не пропускаешь?»</p>\n<p>Это не расшифровка мышцы. Это способ посмотреть, какие ассоциации появляются у самого человека.</p>\n<p>Можно спросить:</p>\n<ul>\n<li>Что ты не выпускаешь?</li>\n<li>Что будет, если отпустишь?</li>\n<li>Чего тебе не хватает, чтобы не держать это всё время?</li>\n</ul>\n<p>Ответ может оказаться полезным. Может быть странным. Может вообще не прийти.</p>\n<div class=\"article-cta\"><a class=\"btn ghost\" href=\"https://t.me/VeronikaSukhareva\">Записаться на консультацию</a></div>\n<div class=\"backline\"><a data-home=\"#articles\" href=\"#\">← Вернуться в раздел</a></div>\n</div>\n</section>\n</main>"},"articles/somatopsihika.html":{"title":"Соматопсихика: когда уже тело влияет на психику","html":"<main id=\"top\">\n<section class=\"article-head\">\n<div class=\"wrap\">\n<p class=\"eyebrow\">Психосоматика</p>\n<h1>Соматопсихика: когда уже тело влияет на психику</h1>\n</div>\n</section>\n<section class=\"article-section\">\n<div class=\"wrap article-copy\">\n<p>Соматопсихика - это такой зверь, где уже телесное состояние влияет на психику человека.</p>\n<p>Представьте, что у вас постоянно что-то болит, нудит, ноет. Или вы всё время в напряжении: скрутит вас приступ цистита, надо ли будет искать туалет, или и так нормально?</p>\n<p>Что у вас в этот момент с радостью жизни?</p>\n<p>Что с тревогой?</p>\n<p>С напряжением?</p>\n<p>Внутренние весы зашатало, да?</p>\n<h2>Перед тем как искать сложное</h2>\n<p>Мне нравится быстрая проверка HALT: голод, злость, одиночество, усталость.</p>\n<p>HALT вообще не только про тело. Но как быстрая проверка состояния он мне нравится.</p>\n<p>Когда я последний раз ела? Я сейчас злюсь? Мне одиноко? Я устала?</p>\n<p>От себя добавлю воду и сон.</p>\n<p>Боль, недосып, голод и другие телесные состояния сами меняют самочувствие и настроение. Поэтому физиологию легко недооценить, если сразу начать искать психологический смысл.</p>\n<p>Весь могучий разум живёт в этой чудесной мясной оболочке. И забота о теле даёт отличный бонус к психологическому состоянию.</p>\n<div class=\"article-cta\"><a class=\"btn ghost\" href=\"https://t.me/VeronikaSukhareva\">Записаться на консультацию</a></div>\n<div class=\"backline\"><a data-home=\"#articles\" href=\"#\">← Вернуться в раздел</a></div>\n</div>\n</section>\n</main>"},"articles/vtorichnaya-vygoda.html":{"title":"Почему я не люблю говорить о «вторичной выгоде»","html":"<main id=\"top\">\n<section class=\"article-head\">\n<div class=\"wrap\">\n<p class=\"eyebrow\">Психосоматика</p>\n<h1>Почему я не люблю говорить о «вторичной выгоде»</h1>\n<p class=\"dek\">Потребности - да. Обвинение мне для этого не нужно.</p>\n</div>\n</section>\n<section class=\"article-section\">\n<div class=\"wrap article-copy\">\n<p>Вторичной выгодой обычно называют не причину болезни, а то, что человек получает или чего избегает уже на фоне болезни или симптома.</p>\n<p>Термин, который я хронически не люблю.</p>\n<p>Вторичная выгода пахнет для меня обвинением, указующими перстами, которые изобличают тебя: «плохо стараешься» или «сама виновата».</p>\n<p>Привкус стыда и обвинения уже в самой формулировке.</p>\n<p>Легче от такого не становится. Потребность может стать видимее, но сосредоточиться на ней в увиноваченном состоянии не выйдет - некому.</p>\n<h2>Что тогда смотреть?</h2>\n<p>Можно отдельно исследовать, что изменилось в жизни из-за болезни или симптома. Появилась ли помощь? Возможность остановиться? От чего пришлось отказаться?</p>\n<p>Можно смотреть и на конфликт вокруг изменений: я хочу, чтобы стало иначе, но каких последствий перемен боюсь?</p>\n<p>Эти наблюдения сами по себе не означают, что человек создал себе симптом ради этой «выгоды».</p>\n<h2>Я за сотрудничество</h2>\n<p>Вместе исследуем, что происходит, какие есть потребности и что с ними можно делать.</p>\n<p>Я вижу, что говорить с человеком о его потребностях, чувствах и состояниях даёт результат. Даже если я ничего не говорю про выгоду.</p>\n<p>Я так и не полюбила этот термин и не стала на него опираться.</p>\n<p>Потребности - да. Помощь - да.</p>\n<p>Слова имеют значение. Как и уважение к происходящему.</p>\n<div class=\"article-cta\"><a class=\"btn ghost\" href=\"https://t.me/VeronikaSukhareva\">Записаться на консультацию</a></div>\n<div class=\"backline\"><a data-home=\"#articles\" href=\"#\">← Вернуться в раздел</a></div>\n</div>\n</section>\n</main>"},"exercises/dialog-s-simptomom.html":{"title":"Как самостоятельно исследовать симптом","html":"<main id=\"top\">\n<section class=\"article-head\">\n<div class=\"wrap\">\n<p class=\"eyebrow\">Образный диалог</p>\n<h1>Как самостоятельно исследовать симптом</h1>\n</div>\n</section>\n<section class=\"article-section\">\n<div class=\"wrap article-copy\">\n<h2>Что понадобится</h2>\n<p>Несколько стульев или бумага и ручка.</p>\n<p>Если удобнее говорить, не отвлекаясь на записи, можно включить диктофон. Это по желанию.</p>\n<h2>Как попробовать</h2>\n<ol class=\"steps\">\n<li><div>Что у вас за симптом? Вспомните телесные ощущения, когда он был в последний раз, или самые яркие, если всплывают они. Симптом проявляется только так или телесных ощущений больше?</div></li>\n<li><div>Высадите образ телесных ощущений на стул. Или подпишите бумажку названием симптома и положите на пол.</div></li>\n<li><div>Сядьте на этот стул или встаньте на бумажку. Представьте, что вы и есть этот симптом. Отвечайте первое, что приходит в голову, каким бы странным и дурацким ни казалось.</div></li>\n<li><div>Неспешно, по отдельности спросите: «Что ты, симптом, делаешь для меня?», «Для чего ты это делаешь?», «Что будет, если ты не будешь это делать?»</div></li>\n<li><div>Потом можно записать всё на бумагу для дальнейшего исследования.</div></li>\n</ol>\n<h2>Ограничения способа</h2>\n<p>При самостоятельной работе всё равно остаётся наблюдатель и контролёр. Возможны социально приемлемые ответы. Может всплыть конкретная история из жизни, с которой дальше уже надо работать отдельно.</p>\n<p>Ответы здесь - материал для дальнейшего исследования, а не доказательство причины симптома.</p>\n<div class=\"article-cta\"><a class=\"btn ghost\" href=\"https://t.me/VeronikaSukhareva\">Записаться на консультацию</a></div>\n<div class=\"backline\"><a data-home=\"#exercises\" href=\"#\">← Вернуться в раздел</a></div>\n</div>\n</section>\n</main>"},"exercises/napryazhenie-i-golovnaya-bol.html":{"title":"Посмотреть на уровень напряжения","html":"<main id=\"top\">\n<section class=\"article-head\">\n<div class=\"wrap\">\n<p class=\"eyebrow\">Наблюдение</p>\n<h1>Посмотреть на уровень напряжения</h1>\n</div>\n</section>\n<section class=\"article-section\">\n<div class=\"wrap article-copy\">\n<p>Можно ради интереса попробовать следующее:</p>\n<ol class=\"steps\">\n<li><div>Оцените свой уровень напряжения в процентах, от 0 до 100%.</div></li>\n<li><div>Представьте, что у вас есть краник, который регулирует напряжение. Потихоньку прикручивайте его и представляйте, что процент напряжения уменьшается.</div></li>\n<li><div>До нуля не доводите. Посмотрите, что меняется в теле, когда напряжения становится меньше.</div></li>\n<li><div>Можно ли решить вашу задачу с меньшим напряжением? Или вы решаете её только напряжением?</div></li>\n</ol>\n<p>Задача здесь - посмотреть на динамику напряжения, а не определить причину симптома.</p>\n<div class=\"article-cta\"><a class=\"btn ghost\" href=\"https://t.me/VeronikaSukhareva\">Записаться на консультацию</a></div>\n<div class=\"backline\"><a data-home=\"#exercises\" href=\"#\">← Вернуться в раздел</a></div>\n</div>\n</section>\n</main>"},"exercises/smotret-na-chernoe.html":{"title":"Смотреть на чёрное","html":"<main id=\"top\">\n<section class=\"article-head\">\n<div class=\"wrap\">\n<p class=\"eyebrow\">Саморегуляция</p>\n<h1>Смотреть на чёрное</h1>\n</div>\n</section>\n<section class=\"article-section\">\n<div class=\"wrap article-copy\">\n<p>Один из способов саморегуляции при ярком телесном симптоме. Чаще его используют для работы с болью, но этим не ограничивается.</p>\n<h2>Как попробовать</h2>\n<ol class=\"steps\">\n<li><div>Представьте образ боли или симптома.</div></li>\n<li><div>Найдите в нём самое чёрное и смотрите туда.</div></li>\n<li><div>Образ может двигаться и меняться. Продолжайте следить за самым чёрным.</div></li>\n<li><div>Продолжайте, пока образ не растворится или не перестанет двигаться и меняться.</div></li>\n<li><div>Если образ остановился и дальше не меняется, на этом можно закончить и выбрать другой способ саморегуляции или разбирать происходящее уже в работе.</div></li>\n</ol>\n<div class=\"article-cta\"><a class=\"btn ghost\" href=\"https://t.me/VeronikaSukhareva\">Записаться на консультацию</a></div>\n<div class=\"backline\"><a data-home=\"#exercises\" href=\"#\">← Вернуться в раздел</a></div>\n</div>\n</section>\n</main>"}};
+const app = document.getElementById('app');
+const home = app.innerHTML;
+
+function bind() {
+  document.querySelectorAll('[data-page]').forEach(a => {
+    a.onclick = e => {
+      e.preventDefault();
+      const p = pages[a.dataset.page];
+      if (!p) return;
+      app.innerHTML = p.html;
+      document.title = p.title + ' - Вероника Сухарева';
+      document.body.classList.add('page-open');
+      window.scrollTo(0, 0);
+      bind();
+    };
+  });
+  document.querySelectorAll('[data-home]').forEach(a => {
+    a.onclick = e => {
+      e.preventDefault();
+      showHome(a.dataset.home || '#top');
+    };
+  });
+}
+
+function showHome(hash = '#top') {
+  app.innerHTML = home;
+  document.title = 'Психосоматика - Вероника Сухарева';
+  document.body.classList.remove('page-open');
+  bind();
+  requestAnimationFrame(() => {
+    const el = document.querySelector(hash);
+    if (el) el.scrollIntoView();
+    else window.scrollTo(0, 0);
+  });
+}
+
+document.getElementById('back').onclick = e => { e.preventDefault(); showHome('#articles'); };
+bind();
+</script>
+</body>
+</html>
