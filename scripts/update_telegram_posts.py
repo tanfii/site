@@ -58,18 +58,37 @@ def auto_informational(text, forwarded=False):
     if forwarded:
         return False
     text = clean_text(text)
-    if len(text) < 220:
+    if len(text) < 280:
         return False
-    if len(re.findall(r"[А-Яа-яЁёA-Za-z]", text)) < 120:
-        return False
-    promo_markers = (
-        "записаться по ссылке", "запись на консультац", "осталось мест", "места в группе",
-        "скидка", "промокод", "регистрация на", "старт группы", "набор в группу"
-    )
-    lowered = text.lower()
-    marker_hits = sum(marker in lowered for marker in promo_markers)
-    return marker_hits < 2
 
+    lowered = text.lower()
+    blocked_starts = (
+        "вопрос!", "пост-знакомство", "пост знакомство", "интересные факты обо мне",
+        "с новым годом жизни", "всем читательницам", "всех с праздником",
+        "за эту неделю я успела"
+    )
+    if lowered.startswith(blocked_starts):
+        return False
+
+    strong_promo = (
+        "#акция", "промокод", "скидка", "записаться по ссылке",
+        "запись на консультац", "осталось мест", "места в группе",
+        "регистрация на", "старт группы", "набор в группу"
+    )
+    if any(marker in lowered for marker in strong_promo):
+        return False
+
+    stems = (
+        "психолог", "психик", "эмоц", "чувств", "потребност", "тревог", "стресс",
+        "терап", "отношен", "реакц", "поведен", "когнит", "мозг", "нервн",
+        "тело", "телесн", "симптом", "психосомат", "исследован", "памят", "вниман",
+        "сон", "боль", "мышц", "гормон", "феррит", "желез", "глюкоз", "инсулин",
+        "депресс", "антидепресс", "донац", "организм", "здоров", "диагноз", "физиолог",
+        "биолог", "метабол", "кислород", "гипокси", "адаптац", "границ", "стыд", "вина",
+        "злост", "страх", "самооцен", "прокраст", "конфликт"
+    )
+    hits = sum(1 for stem in stems if stem in lowered)
+    return hits >= 2 or (hits >= 1 and len(text) >= 700)
 
 def generated_title(text):
     text = clean_text(text)
@@ -83,11 +102,19 @@ def generated_title(text):
 
 
 def generated_topic(text):
-    hashtags = re.findall(r"#([A-Za-zА-Яа-яЁё0-9_]{3,})", text or "")
-    if hashtags:
-        return hashtags[0].replace("_", " ").strip().capitalize()
+    lowered = (text or "").lower()
+    groups = (
+        ("Тело и психосоматика", ("психосомат", "симптом", "телесн", "тело", "боль", "мышц")),
+        ("Мозг и исследования", ("мозг", "когнит", "памят", "вниман", "исследован", "нейро")),
+        ("Физиология", ("феррит", "желез", "глюкоз", "инсулин", "гормон", "метабол", "гипокси", "кислород", "организм")),
+        ("Отношения", ("отношен", "границ", "родител", "партнер", "любов", "близост")),
+        ("Эмоции", ("эмоц", "чувств", "тревог", "стыд", "вина", "злост", "страх")),
+        ("Психотерапия", ("терап", "клиент", "психолог", "супервиз")),
+    )
+    for label, stems in groups:
+        if any(stem in lowered for stem in stems):
+            return label
     return "Психология"
-
 
 def parse_page(html):
     soup = BeautifulSoup(html, "html.parser")
@@ -207,12 +234,15 @@ def build_output(scraped, existing):
     for post in scraped:
         old = existing.get(post["id"], {})
         auto_info = auto_informational(post["text"], post["forwarded"])
+        mode = old.get("mode") or "auto"
+        show = mode == "include" or (mode == "auto" and auto_info)
         item = {
             "id": post["id"],
             "url": post["url"],
             "title": old.get("title") or generated_title(post["text"]),
             "topic": old.get("topic") or generated_topic(post["text"]),
-            "show": old.get("show") if "show" in old else auto_info,
+            "mode": mode,
+            "show": show,
             "auto_info": auto_info,
             "reactions": post["reactions"],
             "views": post["views"],
@@ -226,9 +256,16 @@ def build_output(scraped, existing):
     kept = candidates[:TOP_KEEP]
     kept_ids = {item["id"] for item in kept}
 
+    # Keep explicitly included older entries, but never let stale seed scores outrank live data.
     for post_id, old in existing.items():
-        if post_id not in kept_ids and old.get("show") is True:
-            kept.append(old)
+        if post_id not in kept_ids and (old.get("mode") == "include" or ("mode" not in old and old.get("show") is True)):
+            stale = dict(old)
+            stale["mode"] = old.get("mode") or "include"
+            stale["show"] = True
+            stale["score"] = 0.0
+            stale["reactions"] = int(stale.get("reactions") or 0)
+            stale["views"] = int(stale.get("views") or 0)
+            kept.append(stale)
 
     kept.sort(
         key=lambda x: (
