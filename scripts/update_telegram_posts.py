@@ -13,9 +13,9 @@ from bs4 import BeautifulSoup
 CHANNEL = "sukhareva_psy"
 BASE_URL = f"https://t.me/s/{CHANNEL}"
 OUTPUT = Path("data/telegram-posts.json")
-MAX_PAGES = 60
-REQUEST_DELAY = 1.15
-TOP_KEEP = 60
+MAX_PAGES = 280
+REQUEST_DELAY = 0.35
+TOP_KEEP = 120
 
 
 def parse_count(value):
@@ -57,15 +57,16 @@ def clean_text(text):
 def auto_informational(text, forwarded=False):
     if forwarded:
         return False
+
     text = clean_text(text)
     if len(text) < 280:
         return False
-
     lowered = text.lower()
+
     blocked_starts = (
         "вопрос!", "пост-знакомство", "пост знакомство", "интересные факты обо мне",
         "с новым годом жизни", "всем читательницам", "всех с праздником",
-        "за эту неделю я успела"
+        "за эту неделю я успела", "сегодня делюсь с вами большой радостью"
     )
     if lowered.startswith(blocked_starts):
         return False
@@ -73,48 +74,85 @@ def auto_informational(text, forwarded=False):
     strong_promo = (
         "#акция", "промокод", "скидка", "записаться по ссылке",
         "запись на консультац", "осталось мест", "места в группе",
-        "регистрация на", "старт группы", "набор в группу"
+        "регистрация на", "старт группы", "набор в группу",
+        "до конца недели", "спеццен"
     )
     if any(marker in lowered for marker in strong_promo):
         return False
 
-    stems = (
-        "психолог", "психик", "эмоц", "чувств", "потребност", "тревог", "стресс",
-        "терап", "отношен", "реакц", "поведен", "когнит", "мозг", "нервн",
-        "тело", "телесн", "симптом", "психосомат", "исследован", "памят", "вниман",
-        "сон", "боль", "мышц", "гормон", "феррит", "желез", "глюкоз", "инсулин",
-        "депресс", "антидепресс", "донац", "организм", "здоров", "диагноз", "физиолог",
-        "биолог", "метабол", "кислород", "гипокси", "адаптац", "границ", "стыд", "вина",
-        "злост", "страх", "самооцен", "прокраст", "конфликт"
+    groups = (
+        (
+            "psychology",
+            (
+                "психолог", "психик", "эмоц", "чувств", "потребност", "тревог", "стресс",
+                "терап", "клиент", "отношен", "реакц", "поведен", "границ", "стыд", "вина",
+                "злост", "страх", "самооцен", "прокраст", "конфликт", "травм", "привязан",
+                "защит", "копинг", "пережив", "внутренн"
+            ),
+        ),
+        (
+            "body",
+            (
+                "тело", "телесн", "симптом", "психосомат", "боль", "мышц", "сон",
+                "гормон", "феррит", "желез", "глюкоз", "инсулин", "депресс",
+                "антидепресс", "организм", "здоров", "диагноз", "физиолог",
+                "биолог", "метабол", "кислород", "гипокси", "донац", "дыхани"
+            ),
+        ),
+        (
+            "cognition",
+            (
+                "мозг", "когнит", "памят", "вниман", "исследован", "нейро",
+                "обучен", "чтени", "информац", "восприяти", "концентрац", "мышлен"
+            ),
+        ),
     )
-    hits = sum(1 for stem in stems if stem in lowered)
-    return hits >= 2 or (hits >= 1 and len(text) >= 700)
 
-def generated_title(text):
+    group_hits = []
+    for _, stems in groups:
+        group_hits.append(sum(1 for stem in stems if stem in lowered))
+
+    total_hits = sum(group_hits)
+    strongest = max(group_hits) if group_hits else 0
+
+    # Нужна содержательная концентрация темы, а не случайное упоминание
+    # психологического/телесного слова в личном посте.
+    return strongest >= 2 or (total_hits >= 3 and len(text) >= 420)
+
+
+def generated_title(headline, text):
+    headline = clean_text(headline)
     text = clean_text(text)
+
+    if headline:
+        headline = re.sub(r"^(?:#[A-Za-zА-Яа-яЁё0-9_]+\s*)+", "", headline).strip()
+        if headline and len(headline) <= 150:
+            return headline.rstrip()
+
     if not text:
         return "Открыть пост"
-    sentence = re.split(r"(?<=[.!?])\s+", text)[0].strip()
-    sentence = re.sub(r"^[\W_]+", "", sentence, flags=re.UNICODE)
-    if len(sentence) > 110:
-        sentence = sentence[:107].rstrip(" ,.;:-") + "…"
-    return sentence or "Открыть пост"
+
+    first_sentence = re.split(r"(?<=[.!?])\s+", text, maxsplit=1)[0].strip()
+    first_sentence = re.sub(r"^[\W_]+", "", first_sentence, flags=re.UNICODE).strip()
+    return first_sentence or "Открыть пост"
 
 
 def generated_topic(text):
     lowered = (text or "").lower()
     groups = (
-        ("Тело и психосоматика", ("психосомат", "симптом", "телесн", "тело", "боль", "мышц")),
-        ("Мозг и исследования", ("мозг", "когнит", "памят", "вниман", "исследован", "нейро")),
-        ("Физиология", ("феррит", "желез", "глюкоз", "инсулин", "гормон", "метабол", "гипокси", "кислород", "организм")),
-        ("Отношения", ("отношен", "границ", "родител", "партнер", "любов", "близост")),
+        ("Тело и симптом", ("психосомат", "симптом", "телесн", "тело", "боль", "мышц")),
+        ("Мозг и внимание", ("мозг", "когнит", "памят", "вниман", "нейро", "концентрац", "чтени")),
+        ("Физиология", ("феррит", "желез", "глюкоз", "инсулин", "гормон", "метабол", "гипокси", "кислород", "организм", "дыхани")),
+        ("Отношения", ("отношен", "границ", "родител", "партнер", "любов", "близост", "привязан")),
         ("Эмоции", ("эмоц", "чувств", "тревог", "стыд", "вина", "злост", "страх")),
-        ("Психотерапия", ("терап", "клиент", "психолог", "супервиз")),
+        ("Психотерапия", ("терап", "клиент", "психолог", "супервиз", "запрос")),
+        ("Исследования", ("исследован", "данные", "эксперимент", "выборк")),
     )
     for label, stems in groups:
         if any(stem in lowered for stem in stems):
             return label
     return "Психология"
+
 
 def parse_page(html):
     soup = BeautifulSoup(html, "html.parser")
@@ -132,14 +170,18 @@ def parse_page(html):
             continue
 
         text_el = wrap.select_one(".tgme_widget_message_text")
-        text = text_el.get_text("\n", strip=True) if text_el else ""
+        raw_text = text_el.get_text("\n", strip=True) if text_el else ""
+        lines = [clean_text(line) for line in raw_text.splitlines() if clean_text(line)]
+        headline = lines[0] if lines else ""
+        text = clean_text(raw_text)
         views_el = wrap.select_one(".tgme_widget_message_views")
         time_el = wrap.select_one(".tgme_widget_message_date time") or wrap.select_one("time[datetime]")
         forwarded = bool(wrap.select_one(".tgme_widget_message_forwarded_from"))
         posts.append({
             "id": post_id,
             "url": f"https://t.me/{CHANNEL}/{post_id}",
-            "text": clean_text(text),
+            "text": text,
+            "headline": headline,
             "views": parse_count(views_el.get_text(" ", strip=True) if views_el else ""),
             "reactions": reaction_total(wrap),
             "date": time_el.get("datetime", "") if time_el else "",
@@ -236,11 +278,26 @@ def build_output(scraped, existing):
         auto_info = auto_informational(post["text"], post["forwarded"])
         mode = old.get("mode") or "auto"
         show = mode == "include" or (mode == "auto" and auto_info)
+
+        curated_defaults = {
+            122: ("Почему важны конкретные симптомы, а не только диагноз", "Тело и симптом"),
+            547: ("Зажатые плечи: почему массаж не всегда решает проблему", "Напряжение"),
+            1191: ("Почему я не очень люблю говорить о вторичной выгоде", "Потребности"),
+        }
+        curated_title, curated_topic = curated_defaults.get(post["id"], ("", ""))
+
+        custom_title = old.get("custom_title", "") or curated_title
+        custom_topic = old.get("custom_topic", "") or curated_topic
+        auto_title = generated_title(post.get("headline", ""), post["text"])
+        auto_topic = generated_topic(post["text"])
+
         item = {
             "id": post["id"],
             "url": post["url"],
-            "title": old.get("title") or generated_title(post["text"]),
-            "topic": old.get("topic") or generated_topic(post["text"]),
+            "title": auto_title,
+            "topic": auto_topic,
+            "custom_title": custom_title,
+            "custom_topic": custom_topic,
             "mode": mode,
             "show": show,
             "auto_info": auto_info,
@@ -262,6 +319,10 @@ def build_output(scraped, existing):
             stale = dict(old)
             stale["mode"] = old.get("mode") or "include"
             stale["show"] = True
+            if "custom_title" not in stale:
+                stale["custom_title"] = stale.get("title", "")
+            if "custom_topic" not in stale:
+                stale["custom_topic"] = stale.get("topic", "")
             stale["score"] = 0.0
             stale["reactions"] = int(stale.get("reactions") or 0)
             stale["views"] = int(stale.get("views") or 0)
