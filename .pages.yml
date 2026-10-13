@@ -275,6 +275,9 @@ content:
           - name: consultation
             label: О консультации
             type: text
+          - name: consultation_process
+            label: Как устроена консультация
+            type: text
           - name: note
             label: Примечание под условиями
             type: text
