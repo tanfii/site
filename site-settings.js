@@ -201,7 +201,8 @@
       'Оплата': organization.payment,
       'Если встречу переношу я': organization.therapist_cancellation,
       'Связь и данные': organization.data,
-      'О консультации': organization.consultation
+      'О консультации': organization.consultation,
+      'Как устроена консультация': organization.consultation_process
     };
     Object.keys(orgMap).forEach(function (title) {
       const card = findCard('#org .org-item', title);
